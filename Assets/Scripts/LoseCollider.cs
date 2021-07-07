@@ -7,6 +7,7 @@ public class LoseCollider : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("The following entered the LoseCollider: " + other.tag);
         // When Ball enters LoseCollider, load Game Over scene. 
             
         /*

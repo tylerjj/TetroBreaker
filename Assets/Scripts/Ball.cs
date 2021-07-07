@@ -18,6 +18,7 @@ public class Ball : MonoBehaviour
     void Start()
     {
         paddleToBallVector = transform.position - paddle1.transform.position;
+        GetComponent<Rigidbody2D>().simulated = false;
     }
 
     // Update is called once per frame
@@ -39,7 +40,7 @@ public class Ball : MonoBehaviour
         {
             hasLaunched = true;
             GetComponent<Rigidbody2D>().velocity = new Vector2(xPush, yPush);
-            
+            GetComponent<Rigidbody2D>().simulated = true;
         }
     }
 
