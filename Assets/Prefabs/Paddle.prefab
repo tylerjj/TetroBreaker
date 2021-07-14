@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7386626180576313213
+--- !u!1 &6095961623769403289
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7386626180576313215}
-  - component: {fileID: 7386626180576313214}
-  - component: {fileID: 7386626180576313184}
-  - component: {fileID: 7386626180576313185}
+  - component: {fileID: 6095961623769403291}
+  - component: {fileID: 6095961623769403290}
+  - component: {fileID: 6095961623769403284}
+  - component: {fileID: 6095961623769403285}
   m_Layer: 0
-  m_Name: Block
-  m_TagString: Untagged
+  m_Name: Paddle
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7386626180576313215
+--- !u!4 &6095961623769403291
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7386626180576313213}
+  m_GameObject: {fileID: 6095961623769403289}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.94, y: 3.29, z: 0}
+  m_LocalPosition: {x: 15, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7386626180576313214
+--- !u!212 &6095961623769403290
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7386626180576313213}
+  m_GameObject: {fileID: 6095961623769403289}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -73,27 +73,27 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 19bf439835ad610419194a2d48cbecf6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 6a248cba94e0e1d48b2cb8479c9b4ba2, type: 3}
+  m_Color: {r: 0, g: 1, b: 0.15032363, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 11.636364, y: 11.636364}
+  m_Size: {x: 2.56, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &7386626180576313184
-BoxCollider2D:
+--- !u!60 &6095961623769403284
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7386626180576313213}
+  m_GameObject: {fileID: 6095961623769403289}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: ee48de268b7c4754d866450cba610419, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -101,24 +101,33 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 11.636364, y: 11.636364}
+    oldSize: {x: 2, y: 0.5}
+    newSize: {x: 2.56, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
-  m_EdgeRadius: 0
---- !u!114 &7386626180576313185
+  m_Points:
+    m_Paths:
+    - - {x: 0.5265422, y: 0.2531265}
+      - {x: -0.5046563, y: 0.25312647}
+      - {x: -0.99687386, y: 0.043741107}
+      - {x: -1, y: -0.25}
+      - {x: 1, y: -0.25}
+      - {x: 0.9937477, y: 0.04217419}
+      - {x: 0.82343197, y: 0.118739635}
+--- !u!114 &6095961623769403285
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7386626180576313213}
+  m_GameObject: {fileID: 6095961623769403289}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95265e076a36ded439310c4a99823025, type: 3}
+  m_Script: {fileID: 11500000, guid: a0bd35cf50e0f3e49b06b30ebe4d46c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screenWidthInUnits: 16
+  minMousePosX: 1
+  maxMousePosX: 15
