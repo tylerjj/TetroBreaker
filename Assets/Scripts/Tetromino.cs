@@ -4,61 +4,59 @@ using UnityEngine;
 
 public class Tetromino : MonoBehaviour
 {
-    List<Block> blocks;
-    [SerializeField] Block _blockPrefab;
-    [SerializeField] float _pixelSize;
-    [SerializeField] float _pixelsPerUnit;
-    [SerializeField] Sprite _defaultBlock;
-    [SerializeField] Sprite _damagedBlock1;
-    [SerializeField] Sprite _damagedBlock2;
-    [SerializeField] Color color;
-    private float _offset;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] static int totalHealth = 3;
+
+    public int currentHealth { get; set; }
+
+    [SerializeField] public Sprite defaultBlock;
+
+    [SerializeField] public Sprite damagedBlock_1;
+
+    [SerializeField] public Sprite damagedBlock_2;
+
+    private void Start()
     {
-        blocks = new List<Block>();
-        Block temp = Instantiate(_blockPrefab, transform.position, Quaternion.identity);
-        _pixelSize = temp.pixelSize;
-        _pixelsPerUnit = temp.pixelsPerUnit;
-        Destroy(temp);
-
-        Debug.Log("Tetromino _PixelSize: " + _pixelSize);
-        Debug.Log("Tetromino _PixelsPerUnit: " + _pixelsPerUnit);
-
-        _offset = _pixelSize / _pixelsPerUnit;
-
-        InitializeBlocks();
-
+        currentHealth = totalHealth;
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        Damage();
     }
-
-    private void InitializeBlocks()
+    public void Damage() 
     {
-        Debug.Log("Offset: " + _offset);
-        Block temp = Instantiate(_blockPrefab, transform.position + new Vector3(0, 0, 0), Quaternion.identity);
-        blocks.Add(temp);
-        temp = Instantiate(_blockPrefab, transform.position + new Vector3(_offset, 0, 0), Quaternion.identity);
-        blocks.Add(temp);
-        temp = Instantiate(_blockPrefab, transform.position + new Vector3(0, -1f*_offset, 0), Quaternion.identity);
-        blocks.Add(temp);
-        temp = Instantiate(_blockPrefab, transform.position + new Vector3(_offset, -1f*_offset, 0), Quaternion.identity);
-        blocks.Add(temp);
-    }
+        Debug.Log("Damage has been called.");
+        currentHealth--;
+        Debug.Log("Current Health: " + currentHealth);  
 
-    private void SetWeakSpot(int index)
+        // Iterate through children and call Damage().
+        foreach (Transform child in transform)
+        {
+            //// What I wish I could do:
+            // Block child = (Block)child.gameObject;
+            // child.Damage();
+
+
+            DamageBlock(child.gameObject);
+
+        }            
+        if (currentHealth == 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+    public void DamageBlock(GameObject gameObj)
     {
-
+        if (currentHealth == 2)
+        {
+            gameObj.GetComponent<SpriteRenderer>().sprite = damagedBlock_1;
+        }
+        else if (currentHealth == 1)
+        {
+            gameObj.GetComponent<SpriteRenderer>().sprite = damagedBlock_2;
+        }
+        else
+        {
+            Destroy(gameObj);
+        }
     }
-
-    public void Damage()
-    {
-
-    }
-
-
 }

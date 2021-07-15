@@ -27,7 +27,7 @@ public class Paddle : MonoBehaviour
 
         // Get relative position on screen of mouse.
         Vector2 mousePosInUnits = Input.mousePosition / (float)Screen.width * screenWidthInUnits;
-        Debug.Log("Mouse Position in Units: " + mousePosInUnits);
+        //Debug.Log("Mouse Position in Units: " + mousePosInUnits);
         Vector2 paddlePos = new Vector2(transform.position.x, transform.position.y);
         paddlePos.x = Mathf.Clamp(mousePosInUnits.x, minMousePosX, maxMousePosX);
         transform.position = paddlePos;
