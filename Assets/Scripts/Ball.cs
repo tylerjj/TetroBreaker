@@ -51,4 +51,14 @@ public class Ball : MonoBehaviour
         // Update Ball Position relative to Paddle Position. 
         transform.position = paddlePos + paddleToBallVector;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (hasLaunched)
+        {
+            // Play SFX when ball bounces into things. 
+            GetComponent<AudioSource>().Play();
+        }
+        
+    }
 }
