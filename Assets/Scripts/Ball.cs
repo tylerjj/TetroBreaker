@@ -9,16 +9,24 @@ public class Ball : MonoBehaviour
     [SerializeField] Paddle paddle1;
     [SerializeField] float xPush = 2f;
     [SerializeField] float yPush = 10f;
-
+    [SerializeField] Boolean randomizeSounds = false;
+    [SerializeField] AudioClip[] ballSounds;
+    
     // state
     Vector2 paddleToBallVector;
     Boolean hasLaunched = false;
 
+    // Cached component references
+    AudioSource myAudioSource;
+
     // Start is called before the first frame update
     void Start()
     {
+        
         paddleToBallVector = transform.position - paddle1.transform.position;
         GetComponent<Rigidbody2D>().simulated = false;
+        
+        myAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -51,13 +59,31 @@ public class Ball : MonoBehaviour
         // Update Ball Position relative to Paddle Position. 
         transform.position = paddlePos + paddleToBallVector;
     }
+    private void PlaySFX()
+    {
+        if (randomizeSounds)
+        {
+            // Get a random audio clip from our ball sounds. 
+            AudioClip clip = ballSounds[UnityEngine.Random.Range(0, ballSounds.Length)];
+
+            // Play SFX when ball bounces into things. 
+            // (PlayOneShot makes sure that our sfx play to
+            // completion, as opposed to being replaced by whatever
+            // clip is played next.)
+            myAudioSource.PlayOneShot(clip);
+        }
+        else
+        {
+            myAudioSource.pitch = UnityEngine.Random.Range(.9f, 1.1f);
+            myAudioSource.Play();
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (hasLaunched)
         {
-            // Play SFX when ball bounces into things. 
-            GetComponent<AudioSource>().Play();
+            PlaySFX();
         }
         
     }
