@@ -7,13 +7,23 @@ public class Level : MonoBehaviour
 
     [SerializeField] int breakableObjects; // Serialized for debugging purposes
 
+    SceneLoader sceneLoader;
+
+    private void Start()
+    {
+        sceneLoader = FindObjectOfType<SceneLoader>();
+    }
     public void CountBreakableObjects()
     {
         breakableObjects++;
     }
 
-    public void BreakBreakableObjects()
+    public void BreakableObjectDestroyed()
     {
         breakableObjects--;
+        if (breakableObjects <= 0)
+        {
+            sceneLoader.LoadNextScene();
+        }
     }
 }

@@ -57,7 +57,7 @@ public class Block : MonoBehaviour
         }
         else
         {
-            level.BreakBreakableObjects();
+            level.BreakableObjectDestroyed();
             Destroy(gameObject);
             AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position, .2f);
         }

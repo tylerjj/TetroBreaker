@@ -45,7 +45,7 @@ public class Shape : MonoBehaviour
         }            
         if (currentHealth == 0)
         {
-            level.BreakBreakableObjects();
+            level.BreakableObjectDestroyed();
             Destroy(gameObject);
             AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position, .2f);
         }
