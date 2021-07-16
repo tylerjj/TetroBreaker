@@ -10,13 +10,18 @@ public class Shape : MonoBehaviour
     [SerializeField] public Sprite damagedBlock_2;
     [SerializeField] static int totalHealth = 3;
     
+    // cached reference
+    Level level;
+
     public int currentHealth { get; set; }
 
 
 
     private void Start()
     {
+        level = FindObjectOfType<Level>();
         currentHealth = totalHealth;
+        level.CountBreakableObjects();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -40,7 +45,7 @@ public class Shape : MonoBehaviour
         }            
         if (currentHealth == 0)
         {
-            
+            level.BreakBreakableObjects();
             Destroy(gameObject);
             AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position, .2f);
         }

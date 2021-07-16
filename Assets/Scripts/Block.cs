@@ -9,14 +9,22 @@ public class Block : MonoBehaviour
     [SerializeField] public Sprite damagedBlock_1;
     [SerializeField] public Sprite damagedBlock_2;
     [SerializeField] int totalHealth = 3;
-    
+   
+    // Cached Reference
+    Level level; 
+
     public int currentHealth { get; set; }
-
-
 
     private void Start()
     {
+        level = FindObjectOfType<Level>();
         currentHealth = totalHealth;
+
+        if (!transform.parent.CompareTag("Shape"))
+        {
+            // Behavior when this block is NOT a piece of a larger shape.
+            level.CountBreakableObjects();
+        }
     }
     public void changeCurrentSprite(Sprite newSprite)
     {
@@ -49,7 +57,7 @@ public class Block : MonoBehaviour
         }
         else
         {
-            
+            level.BreakBreakableObjects();
             Destroy(gameObject);
             AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position, .2f);
         }
