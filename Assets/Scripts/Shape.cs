@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tetromino : MonoBehaviour
+public class Shape : MonoBehaviour
 {
     [SerializeField] static int totalHealth = 3;
 
@@ -24,9 +24,8 @@ public class Tetromino : MonoBehaviour
     }
     public void Damage() 
     {
-        Debug.Log("Damage has been called.");
         currentHealth--;
-        Debug.Log("Current Health: " + currentHealth);  
+        
 
         // Iterate through children and call Damage().
         foreach (Transform child in transform)
@@ -44,6 +43,7 @@ public class Tetromino : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     public void DamageBlock(GameObject gameObj)
     {
         if (currentHealth == 2)
