@@ -1428,6 +1428,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6379997104704628647, guid: fb8f6973a442919438fb06cbd046ec04, type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6379997104704628647, guid: fb8f6973a442919438fb06cbd046ec04, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 42eca95eca33c464b93c6797d20a673c, type: 3}
     - target: {fileID: 3456221403029523365, guid: fb8f6973a442919438fb06cbd046ec04, type: 3}
       propertyPath: m_Name
       value: Game Camera

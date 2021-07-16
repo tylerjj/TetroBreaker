@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Block : MonoBehaviour
-{
+{   
+    [SerializeField] AudioClip breakSound; 
+    [SerializeField] public Sprite defaultBlock;
+    [SerializeField] public Sprite damagedBlock_1;
+    [SerializeField] public Sprite damagedBlock_2;
     [SerializeField] int totalHealth = 3;
-
+    
     public int currentHealth { get; set; }
 
-    [SerializeField] public Sprite defaultBlock;
 
-    [SerializeField] public Sprite damagedBlock_1;
-
-    [SerializeField] public Sprite damagedBlock_2;
 
     private void Start()
     {
@@ -49,7 +49,9 @@ public class Block : MonoBehaviour
         }
         else
         {
+            
             Destroy(gameObject);
+            AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position, .2f);
         }
     }
 }
