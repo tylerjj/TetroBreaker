@@ -10,7 +10,7 @@ public class Block : MonoBehaviour
     [SerializeField] public Sprite defaultBlock;
     [SerializeField] public Sprite damagedBlock_1;
     [SerializeField] public Sprite damagedBlock_2;
-    [SerializeField] int totalHealth = 3;
+    [Range(1, 3)][SerializeField] int totalHealth = 3;
 
     // state variables
     public int currentHealth;
@@ -23,62 +23,105 @@ public class Block : MonoBehaviour
 
     private void Start()
     {
-        
-        level = FindObjectOfType<Level>();
-        gameStatus = FindObjectOfType<GameSession>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        SetCachedReferences();
         
         currentHealth = totalHealth;
 
+        UpdateSpriteForCurrentHealth();
+
+        CountBreakableObjects();
+    }
+
+    private void SetCachedReferences()
+    {
+        level = FindObjectOfType<Level>();
+        gameStatus = FindObjectOfType<GameSession>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void CountBreakableObjects()
+    {
+        // If not part of a larger shape
         if (!transform.parent.CompareTag("Shape"))
         {
-            // Behavior when this block is NOT a piece of a larger shape.
-            level.CountBreakableObjects();
+            // and if breakable
+            if (gameObject.CompareTag("Breakable"))
+            {
+                // add to count of breakable objects
+                level.CountBreakableObjects();
+            }
         }
     }
 
-    public void changeCurrentSprite(Sprite newSprite)
+    public void ChangeCurrentSprite(Sprite newSprite)
     {
         spriteRenderer.sprite = newSprite;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (transform.parent.CompareTag("Shape")) {
-            // Behavior when this block is a piece of a larger shape.
-        }
-        else
-        {
-            Damage();
-        }
-    }
-
-    public void Damage()
+    private bool UpdateSpriteForCurrentHealth()
     {
         
-        currentHealth--;   
-        gameStatus.AddToScore();
-
-        if (currentHealth == 2)
+        if (currentHealth == 3)
         {
-            changeCurrentSprite(damagedBlock_1);
+            ChangeCurrentSprite(defaultBlock);
+        }
+        else if (currentHealth == 2)
+        {
+            ChangeCurrentSprite(damagedBlock_1);
         }
         else if (currentHealth == 1)
         {
-            changeCurrentSprite(damagedBlock_2);
-        }
-        else
+            ChangeCurrentSprite(damagedBlock_2);
+        } else
         {
-            level.BreakableObjectDestroyed();
-            AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position, .2f);
-            TriggerSparklesVFX();
-            Destroy(gameObject);
+            return false;
         }
+
+        return true;
     }
 
     private void TriggerSparklesVFX()
     {
         GameObject sparkles = Instantiate(sparklesVFX, transform.position, transform.rotation);
         Destroy(sparkles, 2f);
+    }   
+    public void Damage()
+    {
+        
+        currentHealth--;   
+        gameStatus.AddToScore();
+
+        // UpdateSpriteForCurrentHealth returns false when we have
+        // no sprite mapped to the current health value. 
+        if (!UpdateSpriteForCurrentHealth())
+        {
+            Break();
+        }
     }
+
+    public void Break()
+    {
+            level.BreakableObjectDestroyed();
+            AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position, .2f);
+            TriggerSparklesVFX();
+            Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // if not part of a larger shape
+        if (!transform.parent.CompareTag("Shape"))
+        {
+            // and if breakable
+            if (gameObject.CompareTag("Breakable"))
+            {
+                // damage this breakable object. 
+                Damage();
+            }
+        }
+    }
+
+
+
 }
