@@ -16,7 +16,7 @@ public class Block : MonoBehaviour
 
     // cached reference
     Level level;
-    GameStatus gameStatus;
+    GameSession gameStatus;
     SpriteRenderer spriteRenderer;
 
 
@@ -26,7 +26,7 @@ public class Block : MonoBehaviour
     {
         
         level = FindObjectOfType<Level>();
-        gameStatus = FindObjectOfType<GameStatus>();
+        gameStatus = FindObjectOfType<GameSession>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         
         currentHealth = totalHealth;

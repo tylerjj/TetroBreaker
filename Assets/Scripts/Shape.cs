@@ -12,7 +12,7 @@ public class Shape : MonoBehaviour
     
     // cached reference
     Level level;
-    GameStatus gameStatus;
+    GameSession gameStatus;
     public int currentHealth { get; set; }
 
 
@@ -20,7 +20,7 @@ public class Shape : MonoBehaviour
     private void Start()
     {
         level = FindObjectOfType<Level>();
-        gameStatus = FindObjectOfType<GameStatus>();
+        gameStatus = FindObjectOfType<GameSession>();
         currentHealth = totalHealth;
         level.CountBreakableObjects();
     }

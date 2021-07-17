@@ -17,7 +17,13 @@ public class SceneLoader : MonoBehaviour
     // then this method should be altered.
     public void LoadStartScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(0);        
+        
+        GameSession gameStatus = FindObjectOfType<GameSession>();
+        if (gameStatus != null)
+        {
+            gameStatus.ResetGame();
+        }
     }
 
     public void QuitGame()
