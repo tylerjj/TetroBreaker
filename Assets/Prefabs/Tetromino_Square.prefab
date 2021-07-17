@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   breakSound: {fileID: 8300000, guid: d8d04c6f80a1140db85ede568dab1f51, type: 3}
+  sparklesVFX: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 3}
   defaultBlock: {fileID: 21300000, guid: 19bf439835ad610419194a2d48cbecf6, type: 3}
   damagedBlock_1: {fileID: 21300000, guid: 2179c19dfde2d6f429a7873362e44d0a, type: 3}
   damagedBlock_2: {fileID: 21300000, guid: 1924e61722f51774889f759be88ecdc6, type: 3}

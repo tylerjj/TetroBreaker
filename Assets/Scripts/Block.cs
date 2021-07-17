@@ -5,7 +5,8 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {   
     // config params
-    [SerializeField] AudioClip breakSound; 
+    [SerializeField] AudioClip breakSound;
+    [SerializeField] GameObject sparklesVFX;
     [SerializeField] public Sprite defaultBlock;
     [SerializeField] public Sprite damagedBlock_1;
     [SerializeField] public Sprite damagedBlock_2;
@@ -19,8 +20,6 @@ public class Block : MonoBehaviour
     GameSession gameStatus;
     SpriteRenderer spriteRenderer;
 
-
-    
 
     private void Start()
     {
@@ -72,7 +71,14 @@ public class Block : MonoBehaviour
         {
             level.BreakableObjectDestroyed();
             AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position, .2f);
+            TriggerSparklesVFX();
             Destroy(gameObject);
         }
+    }
+
+    private void TriggerSparklesVFX()
+    {
+        GameObject sparkles = Instantiate(sparklesVFX, transform.position, transform.rotation);
+        Destroy(sparkles, 2f);
     }
 }
