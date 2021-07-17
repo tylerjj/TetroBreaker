@@ -12,7 +12,7 @@ public class Shape : MonoBehaviour
     
     // cached reference
     Level level;
-
+    GameStatus gameStatus;
     public int currentHealth { get; set; }
 
 
@@ -20,6 +20,7 @@ public class Shape : MonoBehaviour
     private void Start()
     {
         level = FindObjectOfType<Level>();
+        gameStatus = FindObjectOfType<GameStatus>();
         currentHealth = totalHealth;
         level.CountBreakableObjects();
     }
@@ -53,6 +54,7 @@ public class Shape : MonoBehaviour
 
     public void DamageBlock(GameObject gameObj)
     {
+        gameStatus.AddToScore();
         if (currentHealth == 2)
         {
             gameObj.GetComponent<SpriteRenderer>().sprite = damagedBlock_1;
