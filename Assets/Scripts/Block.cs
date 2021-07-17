@@ -8,13 +8,13 @@ public class Block : MonoBehaviour
     [SerializeField] AudioClip breakSound;
     [SerializeField] GameObject sparklesVFX;
     [SerializeField] Sprite[] hitSprites;
-    [Range(1, 3)][SerializeField] int maxHits = 3;
+    [Range(1, 3)][SerializeField] protected int maxHits = 3;
 
     // state variables
-    public int timesHit;
+    protected int timesHit;
 
     // cached reference
-    Level level;
+    protected Level level;
     GameSession gameStatus;
     SpriteRenderer spriteRenderer;
 
@@ -33,7 +33,7 @@ public class Block : MonoBehaviour
         CountBreakableObjects();
     }
 
-    private void SetCachedReferences()
+    protected void SetCachedReferences()
     {
         level = FindObjectOfType<Level>();
         gameStatus = FindObjectOfType<GameSession>();
@@ -77,7 +77,11 @@ public class Block : MonoBehaviour
 
         if (timesHit >= maxHits)
         {
-            Break();
+            if (!transform.parent.CompareTag("Shape"))
+            {
+                Break();
+            }
+            
         } else
         {
             UpdateSpriteForCurrentHitCount();
