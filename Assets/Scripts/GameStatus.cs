@@ -13,8 +13,27 @@ public class GameStatus : MonoBehaviour
     // state variables
     [SerializeField] int currentScore = 0; //Serialized for debugging purposes.
 
+    private void Awake()
+    {
+        // If a GameStatus already exists, destroy yourself (they are already 'the one'.)
+        // If there's no GameStatus, then go on and boot up (you'll be 'the one'.), and don't
+        // destroy yourself on load. 
+        int gameStatusCount = FindObjectsOfType<GameStatus>().Length;
+        if (gameStatusCount > 1)
+        {
+            gameObject.SetActive(false);
+            Destroy(gameObject);
+        } else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
     private void Start()
     {
+
+
+
         scoreText.text = currentScore.ToString();
     }
 
