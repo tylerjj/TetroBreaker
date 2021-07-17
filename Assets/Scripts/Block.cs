@@ -10,10 +10,10 @@ public class Block : MonoBehaviour
     [SerializeField] public Sprite defaultBlock;
     [SerializeField] public Sprite damagedBlock_1;
     [SerializeField] public Sprite damagedBlock_2;
-    [Range(1, 3)][SerializeField] int totalHealth = 3;
+    [Range(1, 3)][SerializeField] int maxHits = 3;
 
     // state variables
-    public int currentHealth;
+    public int hitsRemaining;
 
     // cached reference
     Level level;
@@ -26,7 +26,7 @@ public class Block : MonoBehaviour
 
         SetCachedReferences();
         
-        currentHealth = totalHealth;
+        hitsRemaining = maxHits;
 
         UpdateSpriteForCurrentHealth();
 
@@ -59,26 +59,21 @@ public class Block : MonoBehaviour
         spriteRenderer.sprite = newSprite;
     }
 
-    private bool UpdateSpriteForCurrentHealth()
+    private void UpdateSpriteForCurrentHealth()
     {
         
-        if (currentHealth == 3)
+        if (hitsRemaining == 3)
         {
             ChangeCurrentSprite(defaultBlock);
         }
-        else if (currentHealth == 2)
+        else if (hitsRemaining == 2)
         {
             ChangeCurrentSprite(damagedBlock_1);
         }
-        else if (currentHealth == 1)
+        else if (hitsRemaining == 1)
         {
             ChangeCurrentSprite(damagedBlock_2);
-        } else
-        {
-            return false;
-        }
-
-        return true;
+        } 
     }
 
     private void TriggerSparklesVFX()
@@ -89,14 +84,15 @@ public class Block : MonoBehaviour
     public void Damage()
     {
         
-        currentHealth--;   
+        hitsRemaining--;   
         gameStatus.AddToScore();
 
-        // UpdateSpriteForCurrentHealth returns false when we have
-        // no sprite mapped to the current health value. 
-        if (!UpdateSpriteForCurrentHealth())
+        if (hitsRemaining <= 0)
         {
             Break();
+        } else
+        {
+            UpdateSpriteForCurrentHealth();
         }
     }
 
