@@ -7,13 +7,11 @@ public class Block : MonoBehaviour
     // config params
     [SerializeField] AudioClip breakSound;
     [SerializeField] GameObject sparklesVFX;
-    [SerializeField] public Sprite defaultBlock;
-    [SerializeField] public Sprite damagedBlock_1;
-    [SerializeField] public Sprite damagedBlock_2;
+    [SerializeField] Sprite[] hitSprites;
     [Range(1, 3)][SerializeField] int maxHits = 3;
 
     // state variables
-    public int hitsRemaining;
+    public int timesHit;
 
     // cached reference
     Level level;
@@ -25,11 +23,13 @@ public class Block : MonoBehaviour
     {
 
         SetCachedReferences();
+
+        timesHit = 0;
+
+        if (gameObject.CompareTag("Breakable")) {
+            UpdateSpriteForCurrentHitCount();
+        }
         
-        hitsRemaining = maxHits;
-
-        UpdateSpriteForCurrentHealth();
-
         CountBreakableObjects();
     }
 
@@ -59,21 +59,9 @@ public class Block : MonoBehaviour
         spriteRenderer.sprite = newSprite;
     }
 
-    private void UpdateSpriteForCurrentHealth()
+    private void UpdateSpriteForCurrentHitCount()
     {
-        
-        if (hitsRemaining == 3)
-        {
-            ChangeCurrentSprite(defaultBlock);
-        }
-        else if (hitsRemaining == 2)
-        {
-            ChangeCurrentSprite(damagedBlock_1);
-        }
-        else if (hitsRemaining == 1)
-        {
-            ChangeCurrentSprite(damagedBlock_2);
-        } 
+        ChangeCurrentSprite(hitSprites[timesHit]);
     }
 
     private void TriggerSparklesVFX()
@@ -84,15 +72,15 @@ public class Block : MonoBehaviour
     public void Damage()
     {
         
-        hitsRemaining--;   
+        timesHit++;   
         gameStatus.AddToScore();
 
-        if (hitsRemaining <= 0)
+        if (timesHit >= maxHits)
         {
             Break();
         } else
         {
-            UpdateSpriteForCurrentHealth();
+            UpdateSpriteForCurrentHitCount();
         }
     }
 

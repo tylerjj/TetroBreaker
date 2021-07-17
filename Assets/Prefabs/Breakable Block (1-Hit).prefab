@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 7386626180576313184}
   - component: {fileID: 4192514455817848141}
   m_Layer: 0
-  m_Name: Unbreakable Block
-  m_TagString: Unbreakable
+  m_Name: Breakable Block (1-Hit)
+  m_TagString: Breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 19bf439835ad610419194a2d48cbecf6, type: 3}
-  m_Color: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -127,6 +127,7 @@ MonoBehaviour:
   defaultBlock: {fileID: 21300000, guid: 19bf439835ad610419194a2d48cbecf6, type: 3}
   damagedBlock_1: {fileID: 21300000, guid: 2179c19dfde2d6f429a7873362e44d0a, type: 3}
   damagedBlock_2: {fileID: 21300000, guid: 1924e61722f51774889f759be88ecdc6, type: 3}
-  hitSprites: []
+  hitSprites:
+  - {fileID: 21300000, guid: 19bf439835ad610419194a2d48cbecf6, type: 3}
   maxHits: 1
   timesHit: 0
