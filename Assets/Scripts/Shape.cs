@@ -4,38 +4,52 @@ using UnityEngine;
 
 public class Shape : Block
 {
+    // config params
     [SerializeField] Block[] blocks;
-    int maxHits;
+
     private void Start()
     {
         SetCachedReferences();
-        SetMaxHits();
-        timesHit = 0;
-        level.CountBreakableObjects();
+        CountBreakableObjects();
     }
-    private void SetMaxHits()
+
+
+    private void Update()
     {
-        if (blocks[0] != null)
+        if (transform.childCount == 0)
         {
-            maxHits = blocks[0].getMaxHits();
+            Break();
         }
-        else Debug.LogError("Child blocks are missing. GameObject Name: " + gameObject.name);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Damage();
+        if (collision.gameObject.CompareTag("Ball"))
+        {
+          Damage();
+        }
+
+    }    
+    
+    private void CountBreakableObjects()
+    {
+        level.CountBreakableObjects();
     }
+    
     new public void Damage() 
     {
-        timesHit++;
         // Iterate through blocks and call Damage().
         foreach (Block block in blocks)
         {
             block.Damage();
         }
-        if (timesHit >= maxHits) {
-            Break();
-        }
+    }
+
+    new public void Break()
+    {
+        AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position, .2f);
+        TriggerSparklesVFX();
+        level.BreakableObjectDestroyed();
+        Destroy(gameObject);
     }
 }

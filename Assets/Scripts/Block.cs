@@ -5,12 +5,12 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {   
     // config params
-    [SerializeField] AudioClip breakSound;
-    [SerializeField] GameObject sparklesVFX;
+    [SerializeField] protected AudioClip breakSound;
+    [SerializeField] protected GameObject sparklesVFX;
     [SerializeField] Sprite[] hitSprites;
 
     // state variables
-    protected int timesHit;
+    [SerializeField] int timesHit;
 
     // cached reference
     protected Level level;
@@ -30,10 +30,7 @@ public class Block : MonoBehaviour
         
         CountBreakableObjects();
     }
-    public int getMaxHits()
-    {
-        return hitSprites.Length;
-    }
+
     protected void SetCachedReferences()
     {
         level = FindObjectOfType<Level>();
@@ -55,7 +52,7 @@ public class Block : MonoBehaviour
         }
     }
 
-    public void ChangeCurrentSprite(Sprite newSprite)
+    private void ChangeCurrentSprite(Sprite newSprite)
     {
         spriteRenderer.sprite = newSprite;
     }
@@ -71,11 +68,12 @@ public class Block : MonoBehaviour
         }
     }
 
-    private void TriggerSparklesVFX()
+    protected void TriggerSparklesVFX()
     {
         GameObject sparkles = Instantiate(sparklesVFX, transform.position, transform.rotation);
         Destroy(sparkles, 2f);
-    }   
+    }
+    
     public void Damage()
     {
         
@@ -86,20 +84,21 @@ public class Block : MonoBehaviour
 
         if (timesHit >= maxHits)
         {
-            if (!transform.parent.CompareTag("Shape"))
-            {
-                Break();
-            }
+            Break();
         } else UpdateSpriteForCurrentHitCount();
       
     }
 
     public void Break()
     {
-            level.BreakableObjectDestroyed();
+        if (!transform.parent.CompareTag("Shape")) 
+        { 
             AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position, .2f);
             TriggerSparklesVFX();
-            Destroy(gameObject);
+            level.BreakableObjectDestroyed();
+        }
+        
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

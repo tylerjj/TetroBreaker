@@ -44,9 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167c44a98c7c45e48becffb950ea2fb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSpeed: 1
+  gameSpeed: 3.9
   pointsPerBreakableObjectDamaged: 83
   scoreText: {fileID: 8433285861574118831}
+  autoPlayEnabled: 1
   currentScore: 0
 --- !u!1001 &8433285861709634574
 PrefabInstance:

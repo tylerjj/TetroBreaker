@@ -23,7 +23,14 @@ public class Level : MonoBehaviour
         breakableObjects--;
         if (breakableObjects <= 0)
         {
-            sceneLoader.LoadNextScene();
+            StartCoroutine(ShortDelayBeforeLoadNextScene(.5f));
+            
         }
+    }
+
+    IEnumerator ShortDelayBeforeLoadNextScene(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        sceneLoader.LoadNextScene();
     }
 }
