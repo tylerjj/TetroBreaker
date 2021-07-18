@@ -8,7 +8,6 @@ public class Block : MonoBehaviour
     [SerializeField] AudioClip breakSound;
     [SerializeField] GameObject sparklesVFX;
     [SerializeField] Sprite[] hitSprites;
-    [Range(1, 3)][SerializeField] protected int maxHits = 3;
 
     // state variables
     protected int timesHit;
@@ -26,13 +25,15 @@ public class Block : MonoBehaviour
 
         timesHit = 0;
 
-        if (gameObject.CompareTag("Breakable")) {
-            UpdateSpriteForCurrentHitCount();
-        }
+        UpdateSpriteForCurrentHitCount();
+
         
         CountBreakableObjects();
     }
-
+    public int getMaxHits()
+    {
+        return hitSprites.Length;
+    }
     protected void SetCachedReferences()
     {
         level = FindObjectOfType<Level>();
@@ -61,7 +62,13 @@ public class Block : MonoBehaviour
 
     private void UpdateSpriteForCurrentHitCount()
     {
-        ChangeCurrentSprite(hitSprites[timesHit]);
+        if (hitSprites[timesHit] != null)
+        {
+            ChangeCurrentSprite(hitSprites[timesHit]);
+        } else
+        {
+            Debug.LogError("Block sprite is missing from array. GameObject Name: " + gameObject.name);
+        }
     }
 
     private void TriggerSparklesVFX()
@@ -72,7 +79,9 @@ public class Block : MonoBehaviour
     public void Damage()
     {
         
-        timesHit++;   
+        timesHit++;
+        int maxHits = hitSprites.Length;
+
         gameStatus.AddToScore();
 
         if (timesHit >= maxHits)
@@ -81,11 +90,8 @@ public class Block : MonoBehaviour
             {
                 Break();
             }
-            
-        } else
-        {
-            UpdateSpriteForCurrentHitCount();
-        }
+        } else UpdateSpriteForCurrentHitCount();
+      
     }
 
     public void Break()
