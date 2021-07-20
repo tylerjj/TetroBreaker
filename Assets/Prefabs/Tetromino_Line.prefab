@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6872631287374303606}
   - component: {fileID: 6872631287374303605}
   - component: {fileID: 6872631287374303604}
+  - component: {fileID: 3673770108105288290}
   m_Layer: 0
   m_Name: Tetromino_Line
   m_TagString: Shape
@@ -51,7 +52,7 @@ MonoBehaviour:
   breakSound: {fileID: 8300000, guid: d8d04c6f80a1140db85ede568dab1f51, type: 3}
   sparklesVFX: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 3}
   hitSprites: []
-  maxHits: 3
+  timesHit: 0
   blocks:
   - {fileID: 7299965634498352777}
   - {fileID: 7299965634183492558}
@@ -78,6 +79,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3673770108105288290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6872631287374303607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80f546ff4e642cb4fbc6d719d89cea9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDirectionY: 0
+  distanceToMoveY: 1
+  moveIntervalY: 4
+  moveDirectionX: 0
+  distanceToMoveX: 1
+  moveIntervalX: 7
+  rotateDirectionZ: 0
+  degreesToRotateZ: 90
+  rotateIntervalZ: 10
+  rotateZMoveXRandomAction: 0
+  randomActionInterval: 8
 --- !u!1001 &6872631286442653315
 PrefabInstance:
   m_ObjectHideFlags: 0
