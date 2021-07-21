@@ -4,26 +4,43 @@ using UnityEngine;
 
 public class MovementManager : MonoBehaviour
 {
-    //[SerializeField] bool isMovingYAxis = false;
+    // config params
+    [SerializeField] uint timeToDelayMovementStart = 0;
+
     [Range(-1, 1)] [SerializeField] int moveDirectionY = 0;
     [SerializeField] float distanceToMoveY = 1f;
-    [SerializeField] float moveIntervalY = 4f;
+    [SerializeField] float moveIntervalY = 1f;
     
-
-    // [SerializeField] bool isMovingXAxis = false;
     [Range(-1, 1)] [SerializeField] int moveDirectionX = 0;
     [SerializeField] float distanceToMoveX = 1f;
-    [SerializeField] float moveIntervalX = 7f;
-
+    [SerializeField] float moveIntervalX = 3f;
+    
     [Range(-1, 1)] [SerializeField] int rotateDirectionZ = 0;
     [SerializeField] float degreesToRotateZ = 90f;
-    [SerializeField] float rotateIntervalZ = 10f;
+    [SerializeField] float rotateIntervalZ = 5f;
 
     [SerializeField] bool rotateZMoveXRandomAction = false;
     [SerializeField] float randomActionInterval = 8f;
     
     // Start is called before the first frame update
     void Start()
+    {
+        StartCoroutine(DelayedStart(timeToDelayMovementStart));
+    }
+
+    IEnumerator DelayedStart(uint seconds)
+    {
+        yield return new WaitForSecondsRealtime((float) seconds);
+        StartMyMovements();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    private void StartMyMovements()
     {
         StartCoroutine(DelayedMoveOnYAxis(moveDirectionY, distanceToMoveY, moveIntervalY));
         if (rotateZMoveXRandomAction)
@@ -37,17 +54,11 @@ public class MovementManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     IEnumerator DelayedMoveOnYAxis(int moveDirection, float distanceToMove, float moveInterval)
     {
         while (true)
         {
-            yield return new WaitForSeconds(moveInterval);
+            yield return new WaitForSecondsRealtime(moveInterval);
             MoveOnYAxis(moveDirection, distanceToMove);
         }
 
@@ -62,7 +73,7 @@ public class MovementManager : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(moveInterval);
+            yield return new WaitForSecondsRealtime(moveInterval);
             MoveOnXAxis(moveDirection, distanceToMove);
         }
     }
@@ -77,14 +88,14 @@ public class MovementManager : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(rotateInterval);
+            yield return new WaitForSecondsRealtime (rotateInterval);
             RotateOnZAxis(rotateDirection, degreesToRotate);
         }
     }
 
     private void RotateOnZAxis(int rotateDirection, float degreesToRotate)
     {
-        transform.Rotate(0f, 0f, degreesToRotate);
+        transform.Rotate(0f, 0f, degreesToRotate*rotateDirection);
     }
 
 
@@ -100,7 +111,7 @@ public class MovementManager : MonoBehaviour
         while (true)
         {
             
-            yield return new WaitForSeconds(actionInterval);
+            yield return new WaitForSecondsRealtime(actionInterval);
 
             Debug.Log("In the Random Action Method!");
             int randomAction = UnityEngine.Random.Range(0, 2);
