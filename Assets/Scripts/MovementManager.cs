@@ -22,10 +22,15 @@ public class MovementManager : MonoBehaviour
     [SerializeField] bool rotateZMoveXRandomAction = false;
     [SerializeField] float randomActionInterval = 8f;
     
-    // Start is called before the first frame update
-    void Start()
+
+    private void OnEnable()
     {
         StartCoroutine(DelayedStart(timeToDelayMovementStart));
+    }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
     }
 
     IEnumerator DelayedStart(uint seconds)

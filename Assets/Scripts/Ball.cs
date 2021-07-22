@@ -20,6 +20,7 @@ public class Ball : MonoBehaviour
     // Cached component references
     AudioSource myAudioSource;
     Rigidbody2D myRigidBody2D;
+    Level level;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,8 @@ public class Ball : MonoBehaviour
         paddleToBallVector = transform.position - paddle1.transform.position;
  
         myAudioSource = GetComponent<AudioSource>();
+
+        level = FindObjectOfType<Level>();
     }
 
     // Update is called once per frame
@@ -50,6 +53,7 @@ public class Ball : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             hasLaunched = true;
+            level.BallLaunched();
             myRigidBody2D.velocity = new Vector2(xPush, yPush);
             myRigidBody2D.simulated = true;
         }

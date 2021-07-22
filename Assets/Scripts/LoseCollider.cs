@@ -5,18 +5,44 @@ using UnityEngine.SceneManagement;
 
 public class LoseCollider : MonoBehaviour
 {
-    [SerializeField] string[] loseTriggeringTags;
+    // config param
+    // [SerializeField] string[] loseTriggeringTags;
+
+    // cached ref
+    Level level;
+
+    private void Start()
+    {
+        level = FindObjectOfType<Level>();
+    }
+    private void OnBallCollision(string tag)
+    {
+        if (tag.Equals("Ball"))
+        {
+            level.BallDied();
+        }
+    }
+
+    private void OnShapeCollision(string tag)
+    {
+        if (tag.Equals("Shape"))
+        {
+            GameOver();
+        }
+    }
+
+    private void GameOver()
+    {
+        SceneManager.LoadScene("Game Over");
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("The following entered the LoseCollider: " + other.tag);
-        foreach (string tag in loseTriggeringTags)
-        {
-            if (tag.Equals(other.tag))
-            {
-                SceneManager.LoadScene("Game Over");
-            }
-        }
+        OnBallCollision(other.tag);
+        OnShapeCollision(other.tag);
     }
+
 
 }
 

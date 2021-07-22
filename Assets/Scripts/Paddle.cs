@@ -16,13 +16,13 @@ public class Paddle : MonoBehaviour
     [SerializeField] float maxXPos = 15f;
 
     // cached references
-    Ball ball;
+    Ball[] balls;
     GameSession gameSession;
 
     // Start is called before the first frame update
     void Start()
     {
-        ball = FindObjectOfType<Ball>();
+        balls = FindObjectsOfType<Ball>();
         gameSession = FindObjectOfType<GameSession>();
     }
 
@@ -32,17 +32,31 @@ public class Paddle : MonoBehaviour
         Vector2 paddlePos = new Vector2(transform.position.x, transform.position.y);
         paddlePos.x = Mathf.Clamp(GetXPos(), minXPos, maxXPos);
         transform.position = paddlePos;
+
     }
 
     private float GetXPos()
     {
         if (gameSession.IsAutoPlayEnabled())
         {
-            return ball.transform.position.x;
+            Ball lowestBall = balls[0];
+            foreach (Ball ball in balls)
+            {
+                if (ball.transform.position.y <= lowestBall.transform.position.y)
+                {
+                    lowestBall = ball;
+                }
+            }
+            return lowestBall.transform.position.x;
         } else
         {
             Vector2 mousePosInUnits = Input.mousePosition / (float)Screen.width * screenWidthInUnits;
             return mousePosInUnits.x;
         }
+    }
+
+    public void UpdateBallsToBeTracked()
+    {
+        balls = FindObjectsOfType<Ball>();
     }
 }
