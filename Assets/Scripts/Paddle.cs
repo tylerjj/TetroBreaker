@@ -59,4 +59,10 @@ public class Paddle : MonoBehaviour
     {
         balls = FindObjectsOfType<Ball>();
     }
+
+    public void SetXPosBounds(float low, float high)
+    {
+        minXPos = low + 1f;
+        maxXPos = high - 1f;
+    }
 }
