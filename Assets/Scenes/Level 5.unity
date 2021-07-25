@@ -1662,7 +1662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1891443390256470429, guid: eaf356e5238f2fa478dc9b57657c93ca, type: 3}
       propertyPath: moveDirectionY
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1891443390256470429, guid: eaf356e5238f2fa478dc9b57657c93ca, type: 3}
       propertyPath: rotateIntervalZ
@@ -2329,7 +2329,7 @@ PrefabInstance:
       objectReference: {fileID: 8995616599331988276}
     - target: {fileID: 8995616597753655293, guid: 33899df85eb5b35418e9d1da913b1a70, type: 3}
       propertyPath: ballsCollected
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8995616597753655293, guid: 33899df85eb5b35418e9d1da913b1a70, type: 3}
       propertyPath: autoPlayEnabled

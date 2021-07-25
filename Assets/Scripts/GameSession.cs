@@ -14,6 +14,7 @@ public class GameSession : MonoBehaviour
     // state variables
     [SerializeField] int currentScore = 0; //Serialized for debugging purposes.
     [SerializeField] int ballsCollected = 1; // Serialized for debugging purposes.
+    [SerializeField] int reserveBalls = 3; // Serialized for debugging purposes.
 
     private void Awake()
     {
@@ -33,9 +34,7 @@ public class GameSession : MonoBehaviour
 
     private void Start()
     {
-
-
-
+        //TODO: add text representation for ALL state variables on screen.
         scoreText.text = currentScore.ToString();
     }
 
@@ -67,6 +66,29 @@ public class GameSession : MonoBehaviour
     {
         return ballsCollected;
     }
+
+    public bool SpendReserveBallToKeepPlaying()
+    {
+        if (reserveBalls == 0)
+        {
+            return false;
+        }
+        else
+        {
+            reserveBalls--;
+            // TODO: update text representation of this value on screen.
+            AddToBallsCollected();
+            return true;
+        }
+    }
+
+    public void AddReserveBall()
+    {
+        reserveBalls++;
+        //TODO: update text representation of this value on screen.
+    }
+
+    
     public void ResetGame()
     {
         Destroy(gameObject);

@@ -45,14 +45,21 @@ public class Level : MonoBehaviour
     {
         foreach (Shape shape in shapes)
         {
-            shape.GetComponent<MovementManager>().enabled = true;
+            if (shape != null)
+            {
+                shape.GetComponent<MovementManager>().enabled = true;
+            }
         }
     }
 
     private void NoLiveBalls()
     {
         foreach (Shape shape in shapes) {
-            shape.GetComponent<MovementManager>().enabled = false;
+            if (shape != null)
+            {
+                shape.GetComponent<MovementManager>().enabled = false;
+            }
+            
         }
     }
 
@@ -79,9 +86,17 @@ public class Level : MonoBehaviour
         liveBalls--;
         paddle.UpdateBallsToBeTracked();
         Debug.Log("Ball died. Total Balls Live: " + liveBalls);
-        if (liveBalls <= 0)
+        if (liveBalls <= 0 && !loadedPaddle)
         {
-            GameOver();
+            if (gameSession.SpendReserveBallToKeepPlaying())
+            {
+                LoadBall();
+            }
+            else
+            {
+                GameOver();
+            }
+           
         }
     }
 
