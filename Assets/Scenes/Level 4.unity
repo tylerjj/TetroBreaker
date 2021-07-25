@@ -604,11 +604,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4940810448550172928, guid: dd2ce194addd3e14b8cd228cae78caf6, type: 3}
       propertyPath: lowBoundX
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4940810448550172928, guid: dd2ce194addd3e14b8cd228cae78caf6, type: 3}
       propertyPath: highBoundX
-      value: 13
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 4940810448550172928, guid: dd2ce194addd3e14b8cd228cae78caf6, type: 3}
       propertyPath: highBoundY

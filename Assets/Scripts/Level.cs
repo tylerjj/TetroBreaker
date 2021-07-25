@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
-    [SerializeField] float lowBoundX = 4f;
-    [SerializeField] float lowBoundY = 0f;
-    [SerializeField] float highBoundX = 13f;
-    [SerializeField] float highBoundY = 0f;
-
     // state vars
     [SerializeField] int breakableObjects; // Serialized for debugging purposes
     [SerializeField] int liveBalls = 0; // Serialized for debugging purposes
@@ -26,7 +21,6 @@ public class Level : MonoBehaviour
         shapes = FindObjectsOfType<Shape>();
         NoLiveBalls();
         paddle = FindObjectOfType<Paddle>();
-        paddle.SetXPosBounds(lowBoundX, highBoundX);
     }
 
     private void OnLiveBalls()

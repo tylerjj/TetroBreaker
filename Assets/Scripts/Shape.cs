@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * @Author Tyler Johnston 07/24/2021
+ */
+
 public class Shape : Block
 {
     // config params
@@ -28,7 +32,6 @@ public class Shape : Block
         {
           Damage();
         }
-
     }    
     
     private void CountBreakableObjects()

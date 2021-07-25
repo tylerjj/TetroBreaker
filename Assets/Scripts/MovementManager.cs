@@ -2,25 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ *  @Author Tyler Johnston 07/24/2021
+ */
 public class MovementManager : MonoBehaviour
 {
     // config params
-    [SerializeField] uint timeToDelayMovementStart = 0;
+    [SerializeField] public uint timeToDelayMovementStart = 0;
 
-    [Range(-1, 1)] [SerializeField] int moveDirectionY = 0;
-    [SerializeField] float distanceToMoveY = 1f;
-    [SerializeField] float moveIntervalY = 1f;
+    [Range(-1, 1)] [SerializeField] public int moveDirectionY = 0;
+    [SerializeField] public float distanceToMoveY = 1f;
+    [SerializeField] public float moveIntervalY = 1f;
     
-    [Range(-1, 1)] [SerializeField] int moveDirectionX = 0;
-    [SerializeField] float distanceToMoveX = 1f;
-    [SerializeField] float moveIntervalX = 3f;
+    [Range(-1, 1)] [SerializeField] public int moveDirectionX = 0;
+    [SerializeField] public float distanceToMoveX = 1f;
+    [SerializeField] public float moveIntervalX = 3f;
     
-    [Range(-1, 1)] [SerializeField] int rotateDirectionZ = 0;
-    [SerializeField] float degreesToRotateZ = 90f;
-    [SerializeField] float rotateIntervalZ = 5f;
+    [Range(-1, 1)] [SerializeField] public int rotateDirectionZ = 0;
+    [SerializeField] public float degreesToRotateZ = 90f;
+    [SerializeField] public float rotateIntervalZ = 5f;
 
-    [SerializeField] bool rotateZMoveXRandomAction = false;
-    [SerializeField] float randomActionInterval = 8f;
+    [SerializeField] public bool rotateZMoveXRandomAction = false;
+    [SerializeField] public float randomActionInterval = 8f;
     
 
     private void OnEnable()
@@ -110,6 +113,11 @@ public class MovementManager : MonoBehaviour
      * either rotate a random Z direction by the config parameter 
      * 'degreesToRotateZ', or it will move a random X direction
      * by the config parameter 'distanceToMoveX'. 
+     * 
+     * NOTE 2: This was used primarily while testing tetrominos
+     * and rigidbody physics. Since that approach didn't work out,
+     * this method *shouldn't* wind up in use. Very tempted to strip
+     * it from this file. In a future version, I very well may.
     **/
     IEnumerator RotateZMoveXRandomAction(float actionInterval)
     {
