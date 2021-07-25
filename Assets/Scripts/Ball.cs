@@ -6,7 +6,7 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     // config parameters
-    [SerializeField] Paddle paddle1;
+
     [SerializeField] float xPush = 2f;
     [SerializeField] float yPush = 10f;
     [SerializeField] Boolean randomizeSounds = false;
@@ -21,6 +21,7 @@ public class Ball : MonoBehaviour
     AudioSource myAudioSource;
     Rigidbody2D myRigidBody2D;
     Level level;
+    Paddle paddle;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +29,11 @@ public class Ball : MonoBehaviour
         myRigidBody2D = GetComponent<Rigidbody2D>();
         myRigidBody2D.simulated = false;
 
-        paddleToBallVector = transform.position - paddle1.transform.position;
+        paddle = FindObjectOfType<Paddle>();
+
+        PlaceBallOnPaddle();
+
+        paddleToBallVector = transform.position - paddle.transform.position;
  
         myAudioSource = GetComponent<AudioSource>();
 
@@ -58,11 +63,17 @@ public class Ball : MonoBehaviour
             myRigidBody2D.simulated = true;
         }
     }
-
+    private void PlaceBallOnPaddle()
+    {
+        //https://stackoverflow.com/questions/25752429/how-to-get-height-of-2d-gamobject-with-sprite-renderer-component-in-unity3d-4-5
+        float ballHeight = transform.localScale.y * GetComponent<SpriteRenderer>().sprite.bounds.size.y;
+        float paddleHeight = paddle.transform.localScale.y * paddle.GetComponent<SpriteRenderer>().sprite.bounds.size.y;
+        transform.position = new Vector3(paddle.transform.position.x, paddleHeight + ballHeight / 2);
+    }
     private void LockToPaddle()
     {
         // Get Paddle Position. 
-        Vector2 paddlePos = new Vector2(paddle1.transform.position.x, paddle1.transform.position.y);
+        Vector2 paddlePos = new Vector2(paddle.transform.position.x, paddle.transform.position.y);
         // Update Ball Position relative to Paddle Position. 
         transform.position = paddlePos + paddleToBallVector;
     }

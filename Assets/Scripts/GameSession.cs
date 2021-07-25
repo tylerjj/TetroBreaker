@@ -13,6 +13,7 @@ public class GameSession : MonoBehaviour
 
     // state variables
     [SerializeField] int currentScore = 0; //Serialized for debugging purposes.
+    [SerializeField] int ballsCollected = 1; // Serialized for debugging purposes.
 
     private void Awake()
     {
@@ -50,6 +51,22 @@ public class GameSession : MonoBehaviour
         scoreText.text = currentScore.ToString();
     }
 
+    public void AddToBallsCollected()
+    {
+        ballsCollected++;
+        // TODO: update text representation of this value on screen.
+    }
+
+    public void RemoveBallFromCollection()
+    {
+        ballsCollected--;
+        // TODO: update text representation of this value on screen.
+    }
+
+    public int GetNumberOfBallsCollected()
+    {
+        return ballsCollected;
+    }
     public void ResetGame()
     {
         Destroy(gameObject);

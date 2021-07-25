@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
+    // config params
+    [SerializeField] GameObject ballPrefab;
+
     // state vars
     [SerializeField] int breakableObjects; // Serialized for debugging purposes
     [SerializeField] int liveBalls = 0; // Serialized for debugging purposes
-    
+    [SerializeField] bool loadedPaddle = false;
+
     // cached component references
     SceneLoader sceneLoader;
     Shape[] shapes;
     Paddle paddle;
+    GameSession gameSession;
 
     private void Start()
     {
@@ -21,8 +26,21 @@ public class Level : MonoBehaviour
         shapes = FindObjectsOfType<Shape>();
         NoLiveBalls();
         paddle = FindObjectOfType<Paddle>();
+        gameSession = FindObjectOfType<GameSession>();
+        LoadBall();
     }
 
+    private void LoadBall()
+    {
+        if (!loadedPaddle)
+        {
+            gameSession.RemoveBallFromCollection();
+            GameObject ball = Instantiate(ballPrefab);
+            ball.SetActive(true);
+            loadedPaddle = true;
+        }
+    }
+        
     private void OnLiveBalls()
     {
         foreach (Shape shape in shapes)
@@ -42,6 +60,11 @@ public class Level : MonoBehaviour
     {
        
         liveBalls++;
+        loadedPaddle = false;
+        if (gameSession.GetNumberOfBallsCollected() >= 1)
+        {
+            LoadBall();
+        }
         paddle.UpdateBallsToBeTracked();
         Debug.Log("Ball Lauched. Total Balls Live: " + liveBalls);
         if (liveBalls == 1)
@@ -86,6 +109,10 @@ public class Level : MonoBehaviour
 
     private void NextLevel()
     {
+        for(int i = 0; i < liveBalls; i++)
+        {
+            gameSession.AddToBallsCollected();
+        }
         sceneLoader.LoadNextScene();
     }
 
