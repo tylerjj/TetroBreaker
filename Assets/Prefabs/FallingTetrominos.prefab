@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc976796a44164b4eacb7fa5d0631b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropBlockFromThisYPos: 16
+  dropBlockFromThisYPos: 14
   angleRotation: 90
   maxRotations: 4
   timeToFirstSpawnLane01: 2

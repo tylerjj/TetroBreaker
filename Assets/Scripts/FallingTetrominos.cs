@@ -22,9 +22,10 @@ using UnityEngine;
 public class FallingTetrominos : MonoBehaviour
 {
     // config params : all lanes
-    [SerializeField] float dropBlockFromThisYPos = 16f;
+    [SerializeField] float dropBlockFromThisYPos = 14f;
     [Range(0, 360)][SerializeField] float angleRotation = 90;
     [SerializeField] int maxRotations = 4;
+    [SerializeField] float timeUntilDestruction = 25f;
 
     // config params : lane 01 
     [SerializeField] float timeToFirstSpawnLane01 = 2f;
@@ -169,7 +170,8 @@ public class FallingTetrominos : MonoBehaviour
         tetromino = ActivateShapeDescent(descentInterval, tetromino);
 
         // Give the shape ample time to descend the whole screen, then destroy it.
-        Destroy(tetromino.gameObject, dropBlockFromThisYPos);
+        // Destroy(tetromino.gameObject, timeUntilDestruction);
+        StartCoroutine(DestroyFallingShape(tetromino, timeUntilDestruction));
     }
 
     IEnumerator ShapeSpawner(float timeToFirstSpawn, float spawnDelayTime, float descentInterval, float lowBoundX, float highBoundX)
@@ -182,5 +184,11 @@ public class FallingTetrominos : MonoBehaviour
             SpawnRandomDescendingShape(descentInterval, lowBoundX, highBoundX);
         }
         
+    }
+
+    IEnumerator DestroyFallingShape(MovementManager shape, float destructionTimer)
+    {
+        yield return new WaitForSecondsRealtime(destructionTimer);
+        Destroy(shape.gameObject);
     }
 }
