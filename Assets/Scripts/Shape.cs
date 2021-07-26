@@ -41,18 +41,38 @@ public class Shape : Block
     
     new public void Damage() 
     {
+        /*
         // Iterate through blocks and call Damage().
         foreach (Block block in blocks)
         {
             block.Damage();
         }
+        */
+        StartCoroutine(DamageBlocks());
     }
-
+    IEnumerator DamageBlocks()
+    {
+        // Iterate through blocks and call Damage().
+        foreach (Block block in blocks)
+        {
+            yield return new WaitForSeconds(.1f);
+            if (block != null)
+            {
+                block.Damage();
+            }
+            
+        }
+    }
     new public void Break()
     {
         AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position, .2f);
         TriggerSparklesVFX();
-        level.BreakableObjectDestroyed();
+        //level.BreakableObjectDestroyed();
         Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        level.BreakableObjectDestroyed();
     }
 }

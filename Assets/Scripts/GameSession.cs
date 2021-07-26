@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameSession : MonoBehaviour
 {
@@ -9,12 +10,18 @@ public class GameSession : MonoBehaviour
     [Range(.1f, 10f)][SerializeField] float gameSpeed = 1f;
     [SerializeField] int pointsPerBreakableObjectDamaged = 83;
     [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI atPlayText;
+    [SerializeField] TextMeshProUGUI reserveText;
+    [SerializeField] TextMeshProUGUI levelText;
     [SerializeField] bool autoPlayEnabled = false;
 
     // state variables
     [SerializeField] int currentScore = 0; //Serialized for debugging purposes.
     [SerializeField] int ballsCollected = 1; // Serialized for debugging purposes.
     [SerializeField] int reserveBalls = 3; // Serialized for debugging purposes.
+    [SerializeField] string levelName; // Serialized for debugging purposes. 
+    [SerializeField] int ballsLoadedIntoScene = 0;
+    [SerializeField] int ballsAtPlay = 1;
 
     private void Awake()
     {
@@ -28,22 +35,35 @@ public class GameSession : MonoBehaviour
             Destroy(gameObject);
         } else
         {
+            SceneManager.sceneLoaded += OnSceneLoaded;
             DontDestroyOnLoad(gameObject);
         }
     }
 
     private void Start()
     {
-        //TODO: add text representation for ALL state variables on screen.
         scoreText.text = currentScore.ToString();
+        UpdateBallsAtPlay();
+        reserveText.text = "Lives: " + (reserveBalls + 1).ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
         Time.timeScale = gameSpeed;
+
     }
 
+    private void UpdateBallsAtPlay()
+    {
+        ballsAtPlay = ballsCollected + ballsLoadedIntoScene;
+        atPlayText.text = "Balls At Play: " + ballsAtPlay.ToString();
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        levelName = scene.name;
+        levelText.text = levelName;
+    }
     public void AddToScore()
     {
         currentScore += pointsPerBreakableObjectDamaged;
@@ -53,13 +73,18 @@ public class GameSession : MonoBehaviour
     public void AddToBallsCollected()
     {
         ballsCollected++;
-        // TODO: update text representation of this value on screen.
+        UpdateBallsAtPlay();
     }
 
+    // NOTE: Sloppy solution for a really minor bug.
+    public void AddToBallsCollectedAtLevelEnd()
+    {
+        ballsCollected++;
+    }
     public void RemoveBallFromCollection()
     {
         ballsCollected--;
-        // TODO: update text representation of this value on screen.
+        UpdateBallsAtPlay();
     }
 
     public int GetNumberOfBallsCollected()
@@ -76,8 +101,7 @@ public class GameSession : MonoBehaviour
         else
         {
             reserveBalls--;
-            // TODO: update text representation of this value on screen.
-            AddToBallsCollected();
+            reserveText.text = "Lives: "+(reserveBalls + 1).ToString();
             return true;
         }
     }
@@ -85,10 +109,21 @@ public class GameSession : MonoBehaviour
     public void AddReserveBall()
     {
         reserveBalls++;
-        //TODO: update text representation of this value on screen.
+        reserveText.text = reserveBalls.ToString();
     }
 
+    public void BallLoadedIntoScene()
+    {
+        ballsLoadedIntoScene++;
+        UpdateBallsAtPlay();
+    }
+    public void BallRemovedFromScene()
+    {
+        ballsLoadedIntoScene--;
+        UpdateBallsAtPlay();
+    }
     
+
     public void ResetGame()
     {
         Destroy(gameObject);

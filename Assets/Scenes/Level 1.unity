@@ -2021,6 +2021,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4362430328049101270, guid: 33899df85eb5b35418e9d1da913b1a70, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4362430328049101275, guid: 33899df85eb5b35418e9d1da913b1a70, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5297213420440470089, guid: 33899df85eb5b35418e9d1da913b1a70, type: 3}
+      propertyPath: m_text
+      value: Score
+      objectReference: {fileID: 0}
     - target: {fileID: 8995616597753655292, guid: 33899df85eb5b35418e9d1da913b1a70, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -2064,6 +2076,22 @@ PrefabInstance:
     - target: {fileID: 8995616597753655292, guid: 33899df85eb5b35418e9d1da913b1a70, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995616597753655293, guid: 33899df85eb5b35418e9d1da913b1a70, type: 3}
+      propertyPath: gameSpeed
+      value: 2.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995616597753655293, guid: 33899df85eb5b35418e9d1da913b1a70, type: 3}
+      propertyPath: reserveBalls
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995616597753655293, guid: 33899df85eb5b35418e9d1da913b1a70, type: 3}
+      propertyPath: ballsCollected
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995616597753655293, guid: 33899df85eb5b35418e9d1da913b1a70, type: 3}
+      propertyPath: autoPlayEnabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8995616597753655294, guid: 33899df85eb5b35418e9d1da913b1a70, type: 3}
       propertyPath: m_Name

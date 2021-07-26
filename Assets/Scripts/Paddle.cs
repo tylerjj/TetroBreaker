@@ -39,14 +39,21 @@ public class Paddle : MonoBehaviour
     {
         if (gameSession.IsAutoPlayEnabled())
         {
-            Ball lowestBall = balls[0];
+            Ball lowestBall = null;
             foreach (Ball ball in balls)
             {
-                if (ball.transform.position.y <= lowestBall.transform.position.y)
+                if (ball != null)
                 {
-                    lowestBall = ball;
+                    if (lowestBall == null)
+                    {
+                        lowestBall = ball;
+                    } else if (ball.transform.position.y <= lowestBall.transform.position.y)
+                    {
+                        lowestBall = ball;
+                    }
                 }
             }
+            //Debug.Log("PaddleAutoXPos: " + lowestBall.transform.position);
             return lowestBall.transform.position.x;
         } else
         {

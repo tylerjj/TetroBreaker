@@ -301,9 +301,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27b095337d7d5e4797287acee08759c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loseTriggeringTags:
-  - Ball
-  - Shape
 --- !u!1 &2593451212092514839
 GameObject:
   m_ObjectHideFlags: 0

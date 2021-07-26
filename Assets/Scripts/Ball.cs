@@ -22,6 +22,7 @@ public class Ball : MonoBehaviour
     Rigidbody2D myRigidBody2D;
     Level level;
     Paddle paddle;
+    GameSession gameSession;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +39,9 @@ public class Ball : MonoBehaviour
         myAudioSource = GetComponent<AudioSource>();
 
         level = FindObjectOfType<Level>();
+
+        gameSession = FindObjectOfType<GameSession>();
+        gameSession.BallLoadedIntoScene();
     }
 
     // Update is called once per frame
@@ -110,5 +114,10 @@ public class Ball : MonoBehaviour
             PlaySFX();
         }
         
+    }
+
+    private void OnDestroy()
+    {
+        gameSession.BallRemovedFromScene();
     }
 }

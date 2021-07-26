@@ -38,6 +38,7 @@ public class Level : MonoBehaviour
             GameObject ball = Instantiate(ballPrefab);
             ball.SetActive(true);
             loadedPaddle = true;
+            paddle.UpdateBallsToBeTracked();
         }
     }
         
@@ -90,6 +91,7 @@ public class Level : MonoBehaviour
         {
             if (gameSession.SpendReserveBallToKeepPlaying())
             {
+                gameSession.AddToBallsCollected();
                 LoadBall();
             }
             else
@@ -100,6 +102,13 @@ public class Level : MonoBehaviour
         }
     }
 
+    public void ShapeCrossedLoseCollider()
+    {
+        if (!gameSession.SpendReserveBallToKeepPlaying())
+        {
+            GameOver();
+        }
+    }
 
     public void CountBreakableObjects()
     {
@@ -111,7 +120,7 @@ public class Level : MonoBehaviour
         breakableObjects--;
         if (breakableObjects <= 0)
         {
-            StartCoroutine(ShortDelayBeforeLoadNextScene(.5f));
+            StartCoroutine(ShortDelayBeforeLoadNextScene(1f));
             
         }
     }
@@ -126,7 +135,7 @@ public class Level : MonoBehaviour
     {
         for(int i = 0; i < liveBalls; i++)
         {
-            gameSession.AddToBallsCollected();
+            gameSession.AddToBallsCollectedAtLevelEnd();
         }
         sceneLoader.LoadNextScene();
     }

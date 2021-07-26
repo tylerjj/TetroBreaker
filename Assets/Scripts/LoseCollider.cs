@@ -27,7 +27,7 @@ public class LoseCollider : MonoBehaviour
     {
         if (tag.Equals("Shape"))
         {
-            GameOver();
+            level.ShapeCrossedLoseCollider();
         }
     }
 
@@ -41,6 +41,7 @@ public class LoseCollider : MonoBehaviour
         Debug.Log("The following entered the LoseCollider: " + other.tag);
         OnBallCollision(other.tag);
         OnShapeCollision(other.tag);
+        Destroy(other.gameObject);
     }
 
 
