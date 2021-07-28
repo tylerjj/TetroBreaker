@@ -30,7 +30,7 @@ public class Level : MonoBehaviour
         LoadBall();
     }
 
-    private void LoadBall()
+    public void LoadBall()
     {
         if (!loadedPaddle)
         {
@@ -108,6 +108,7 @@ public class Level : MonoBehaviour
         {
             GameOver();
         }
+        BreakableObjectDestroyed();
     }
 
     public void CountBreakableObjects()

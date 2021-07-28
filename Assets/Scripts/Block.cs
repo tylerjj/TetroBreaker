@@ -7,14 +7,14 @@ public class Block : MonoBehaviour
     // config params
     [SerializeField] protected AudioClip breakSound;
     [SerializeField] protected GameObject sparklesVFX;
-    [SerializeField] Sprite[] hitSprites;
+    [SerializeField] protected Sprite[] hitSprites;
 
     // state variables
-    [SerializeField] int timesHit;
+    [SerializeField] protected int timesHit;
 
     // cached reference
     protected Level level;
-    GameSession gameStatus;
+    protected GameSession gameStatus;
     SpriteRenderer spriteRenderer;
 
 
@@ -43,10 +43,18 @@ public class Block : MonoBehaviour
         // If not part of a larger shape
         if (!transform.parent.CompareTag("Shape"))
         {
+            /*
             // and if breakable
             if (gameObject.CompareTag("Breakable"))
             {
                 // add to count of breakable objects
+                level.CountBreakableObjects();
+            }
+            */
+
+            // TODO: Maybe Powerups shouldn't be required in order to clear a level.
+            if (!gameObject.CompareTag("Shape") && !gameObject.CompareTag("Unbreakable"))
+            {
                 level.CountBreakableObjects();
             }
         }
@@ -89,32 +97,60 @@ public class Block : MonoBehaviour
       
     }
 
-    public void Break()
+    public virtual void Break()
     {
-        if (!transform.parent.CompareTag("Shape")) 
-        { 
-            AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position, .2f);
-            TriggerSparklesVFX();
-            level.BreakableObjectDestroyed();
-        }
-        
+        Debug.Log("Default Break occurred...");
+        DefaultBehaviourOnBreak();
+
         Destroy(gameObject);
     }
-
+    protected void DefaultBehaviourOnBreak()
+    {
+        if (transform.parent.CompareTag("Shape")) 
+        {
+            int remainingHits = hitSprites.Length - timesHit;
+            while (remainingHits > 0)
+            {
+                gameStatus.AddToScore();
+                remainingHits--;
+            }
+        } else
+        {   
+            AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position, .2f);
+            TriggerSparklesVFX();
+            // TODO: If we don't want powerups to be required objectives,
+            // this needs to change.
+            level.BreakableObjectDestroyed();
+           
+        }
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Collision Occured!");
         // if not part of a larger shape
-        if (!transform.parent.CompareTag("Shape"))
-        {
-            // and if breakable
-            if (gameObject.CompareTag("Breakable"))
+        if (!transform.parent.CompareTag("Shape") && !gameObject.CompareTag("Unbreakable"))
+        {            
+            // if stone
+            if (gameObject.CompareTag("Stone"))
             {
-                // damage this breakable object. 
-                Damage();
+                // Bomb damages stone
+                if (collision.gameObject.CompareTag("Explosion"))
+                {
+                    Damage();
+                }
+            }
+            else if (collision.gameObject.CompareTag("Explosion") || collision.gameObject.CompareTag("Electricity"))
+            {
+                    gameStatus.AddToScore();
+                    // Explosion breaks breakable blocks.
+                    Break();
+                    return;
+            }
+            else if (collision.gameObject.CompareTag("Ball"))
+            {
+                    // Ball damages breakable blocks. 
+                    Damage();
             }
         }
     }
-
-
-
 }

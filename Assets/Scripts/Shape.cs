@@ -31,6 +31,9 @@ public class Shape : Block
         if (collision.gameObject.CompareTag("Ball"))
         {
           Damage();
+        } else if (collision.gameObject.CompareTag("Explosion") || collision.gameObject.CompareTag("Electricity"))
+        {
+            BreakChildren();
         }
     }    
     
@@ -67,12 +70,18 @@ public class Shape : Block
     {
         AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position, .2f);
         TriggerSparklesVFX();
-        //level.BreakableObjectDestroyed();
+        level.BreakableObjectDestroyed();
         Destroy(gameObject);
     }
 
-    private void OnDestroy()
+    public void BreakChildren()
     {
-        level.BreakableObjectDestroyed();
+            foreach (Block block in blocks)
+            {
+                if (block != null)
+                {
+                    block.Break();
+                }
+            }
     }
 }

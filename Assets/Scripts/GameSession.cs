@@ -18,7 +18,7 @@ public class GameSession : MonoBehaviour
     // state variables
     [SerializeField] int currentScore = 0; //Serialized for debugging purposes.
     [SerializeField] int ballsCollected = 1; // Serialized for debugging purposes.
-    [SerializeField] int reserveBalls = 3; // Serialized for debugging purposes.
+    [SerializeField] int reserveBalls = 2; // Serialized for debugging purposes.
     [SerializeField] string levelName; // Serialized for debugging purposes. 
     [SerializeField] int ballsLoadedIntoScene = 0;
     [SerializeField] int ballsAtPlay = 1;
@@ -96,6 +96,7 @@ public class GameSession : MonoBehaviour
     {
         if (reserveBalls == 0)
         {
+            reserveText.text = "Lives: " + (reserveBalls).ToString();
             return false;
         }
         else
@@ -109,7 +110,7 @@ public class GameSession : MonoBehaviour
     public void AddReserveBall()
     {
         reserveBalls++;
-        reserveText.text = reserveBalls.ToString();
+        reserveText.text = "Lives: "+(reserveBalls + 1).ToString();
     }
 
     public void BallLoadedIntoScene()

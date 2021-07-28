@@ -446,15 +446,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167c44a98c7c45e48becffb950ea2fb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSpeed: 1
+  gameSpeed: 2
   pointsPerBreakableObjectDamaged: 83
   scoreText: {fileID: 5297213420440470089}
   atPlayText: {fileID: 4611463820347218805}
   reserveText: {fileID: 3897651417762521541}
   levelText: {fileID: 4711691338574622231}
-  autoPlayEnabled: 0
+  autoPlayEnabled: 1
   currentScore: 0
-  ballsCollected: 1
+  ballsCollected: 3
   reserveBalls: 3
   levelName: 
   ballsLoadedIntoScene: 0

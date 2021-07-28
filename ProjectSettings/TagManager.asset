@@ -8,6 +8,14 @@ TagManager:
   - Shape
   - Breakable
   - Unbreakable
+  - Life
+  - MultiBall
+  - Bomb
+  - LightningH
+  - LightningV
+  - Electricity
+  - Explosion
+  - Stone
   layers:
   - Default
   - TransparentFX
