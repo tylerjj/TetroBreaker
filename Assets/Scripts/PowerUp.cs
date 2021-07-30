@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class PowerUp : Block
 {
-    [SerializeField] GameObject effect;
 
+    public bool broken = false;
     public override void Break()
     {
-        Debug.Log("New Break Occurred...");
+        if (!broken) { 
         DefaultBehaviourOnBreak();
         PowerUpBehaviour();
-        Destroy(gameObject);
+        broken = true;
+        Destroy(gameObject, .1f);
+        }
+       
     }
-
     protected void PowerUpBehaviour()
     {
         string tag = gameObject.tag;
@@ -51,16 +53,19 @@ public class PowerUp : Block
 
     private void BombBlock()
     {
+        BoxCollider2D myCollider = GetComponent<BoxCollider2D>();
+        myCollider.size = new Vector2(myCollider.size.x*3,myCollider.size.y*3);
 
     }
-
     private void LightningVerticalBlock()
     {
-
+        BoxCollider2D myCollider = GetComponent<BoxCollider2D>();
+        myCollider.size = new Vector2(myCollider.size.x, myCollider.size.y * 24);
     }
 
     private void LightningHorizontalBlock()
     {
-
+        BoxCollider2D myCollider = GetComponent<BoxCollider2D>();
+        myCollider.size = new Vector2(myCollider.size.x *32f, myCollider.size.y);
     }
 }

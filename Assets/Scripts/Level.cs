@@ -121,7 +121,7 @@ public class Level : MonoBehaviour
         breakableObjects--;
         if (breakableObjects <= 0)
         {
-            StartCoroutine(ShortDelayBeforeLoadNextScene(1f));
+            StartCoroutine(ShortDelayBeforeLoadNextScene(.1f));
             
         }
     }

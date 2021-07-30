@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7386626180576313214}
   - component: {fileID: 7386626180576313184}
   - component: {fileID: 4192514455817848141}
+  - component: {fileID: 8394125560985170144}
   m_Layer: 0
   m_Name: Breakable Block (2-Hit)
   m_TagString: Breakable
@@ -127,5 +128,25 @@ MonoBehaviour:
   hitSprites:
   - {fileID: 21300000, guid: 19bf439835ad610419194a2d48cbecf6, type: 3}
   - {fileID: 21300000, guid: 2179c19dfde2d6f429a7873362e44d0a, type: 3}
-  maxHits: 2
   timesHit: 0
+--- !u!50 &8394125560985170144
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7386626180576313213}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0

@@ -126,20 +126,23 @@ public class Block : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collision Occured!");
+        Debug.Log("Collision on "+name+" occured from :"+collision.gameObject.tag);
         // if not part of a larger shape
-        if (!transform.parent.CompareTag("Shape") && !gameObject.CompareTag("Unbreakable"))
+        if (!transform.parent.CompareTag("Shape") && !CompareTag("Unbreakable"))
         {            
             // if stone
-            if (gameObject.CompareTag("Stone"))
+            if (CompareTag("Stone"))
             {
                 // Bomb damages stone
-                if (collision.gameObject.CompareTag("Explosion"))
+                if (collision.gameObject.CompareTag("Bomb"))
                 {
+                    //Debug.Log("Stone damaged.");
                     Damage();
                 }
             }
-            else if (collision.gameObject.CompareTag("Explosion") || collision.gameObject.CompareTag("Electricity"))
+            else if (collision.gameObject.CompareTag("Bomb") || 
+                collision.gameObject.CompareTag("LightningV") || 
+                collision.gameObject.CompareTag("LightningH"))
             {
                     gameStatus.AddToScore();
                     // Explosion breaks breakable blocks.

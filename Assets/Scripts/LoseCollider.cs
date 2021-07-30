@@ -39,6 +39,10 @@ public class LoseCollider : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("The following entered the LoseCollider: " + other.tag);
+        if (!other.CompareTag("Ball") && !other.CompareTag("Shape"))
+        {
+            return;
+        }
         OnBallCollision(other.tag);
         OnShapeCollision(other.tag);
         Destroy(other.gameObject);

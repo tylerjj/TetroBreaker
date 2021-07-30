@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3414832621311046605}
   - component: {fileID: 3414832621311046611}
   - component: {fileID: 5323674004243399596}
+  - component: {fileID: -652719126879721528}
   m_Layer: 0
   m_Name: Life Block
   m_TagString: Life
@@ -128,3 +129,24 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0404327d4bee16a48a3cc43eb12c5881, type: 3}
   timesHit: 0
   effect: {fileID: 0}
+--- !u!50 &-652719126879721528
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3414832621311046606}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0

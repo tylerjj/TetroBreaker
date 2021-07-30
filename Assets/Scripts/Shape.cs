@@ -31,7 +31,9 @@ public class Shape : Block
         if (collision.gameObject.CompareTag("Ball"))
         {
           Damage();
-        } else if (collision.gameObject.CompareTag("Explosion") || collision.gameObject.CompareTag("Electricity"))
+        } else if (collision.gameObject.CompareTag("Bomb") || 
+            collision.gameObject.CompareTag("LightningV") || 
+            collision.gameObject.CompareTag("LightningH"))
         {
             BreakChildren();
         }
@@ -42,7 +44,7 @@ public class Shape : Block
         level.CountBreakableObjects();
     }
     
-    new public void Damage() 
+    new private void Damage() 
     {
         /*
         // Iterate through blocks and call Damage().
@@ -66,7 +68,7 @@ public class Shape : Block
             
         }
     }
-    new public void Break()
+    new private void Break()
     {
         AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position, .2f);
         TriggerSparklesVFX();
@@ -74,7 +76,7 @@ public class Shape : Block
         Destroy(gameObject);
     }
 
-    public void BreakChildren()
+    private void BreakChildren()
     {
             foreach (Block block in blocks)
             {
