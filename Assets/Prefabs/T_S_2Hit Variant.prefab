@@ -7,9 +7,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6938896233270729784, guid: 1780173cfe75d4a439bd6599b8ad54c7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1280250191047878064, guid: 1780173cfe75d4a439bd6599b8ad54c7, type: 3}
       propertyPath: m_Name
-      value: T_S_2Hit
+      value: T_S_2Hit Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1280250191047878065, guid: 1780173cfe75d4a439bd6599b8ad54c7, type: 3}
       propertyPath: m_RootOrder
@@ -53,6 +57,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1280250191047878065, guid: 1780173cfe75d4a439bd6599b8ad54c7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280250191047878067, guid: 1780173cfe75d4a439bd6599b8ad54c7, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280250191047878067, guid: 1780173cfe75d4a439bd6599b8ad54c7, type: 3}
+      propertyPath: m_UseFullKinematicContacts
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3164501577686308375, guid: 1780173cfe75d4a439bd6599b8ad54c7, type: 3}

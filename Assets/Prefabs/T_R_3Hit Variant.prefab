@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2194485808805283394, guid: 9eabe6e92b71f7540be5a73bc766d243, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -856767358224901519, guid: 9eabe6e92b71f7540be5a73bc766d243, type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_Collider
       value: 
@@ -99,6 +103,14 @@ PrefabInstance:
       propertyPath: m_ColliderPaths.Array.data[3].m_ColliderPaths.Array.data[0].Array.data[3].Y
       value: -15000000
       objectReference: {fileID: 0}
+    - target: {fileID: 5633656153563761220, guid: 9eabe6e92b71f7540be5a73bc766d243, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5633656153563761220, guid: 9eabe6e92b71f7540be5a73bc766d243, type: 3}
+      propertyPath: m_UseFullKinematicContacts
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5633656153563761222, guid: 9eabe6e92b71f7540be5a73bc766d243, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -145,7 +157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5633656153563761223, guid: 9eabe6e92b71f7540be5a73bc766d243, type: 3}
       propertyPath: m_Name
-      value: T_R_3Hit
+      value: T_R_3Hit Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9eabe6e92b71f7540be5a73bc766d243, type: 3}

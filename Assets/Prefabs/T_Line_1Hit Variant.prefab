@@ -175,6 +175,18 @@ PrefabInstance:
       propertyPath: m_ColliderPaths.Array.data[3].m_ColliderPaths.Array.data[0].Array.data[3].Y
       value: 4999712
       objectReference: {fileID: 0}
+    - target: {fileID: 3673770108105288290, guid: 42f774a8f8329bd4b93bdac4c40a4794, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6872631287374303604, guid: 42f774a8f8329bd4b93bdac4c40a4794, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6872631287374303604, guid: 42f774a8f8329bd4b93bdac4c40a4794, type: 3}
+      propertyPath: m_UseFullKinematicContacts
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6872631287374303606, guid: 42f774a8f8329bd4b93bdac4c40a4794, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -221,7 +233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6872631287374303607, guid: 42f774a8f8329bd4b93bdac4c40a4794, type: 3}
       propertyPath: m_Name
-      value: T_Line_1Hit
+      value: T_Line_1Hit Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7299965633410720464, guid: 42f774a8f8329bd4b93bdac4c40a4794, type: 3}
       propertyPath: hitSprites.Array.size

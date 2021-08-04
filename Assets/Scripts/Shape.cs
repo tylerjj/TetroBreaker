@@ -41,7 +41,10 @@ public class Shape : Block
     
     private void CountBreakableObjects()
     {
-        level.CountBreakableObjects();
+        if (level != null)
+        {
+            level.CountBreakableObjects();
+        }
     }
     
     new private void Damage() 

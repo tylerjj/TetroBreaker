@@ -1199,10 +1199,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5201068655095162076, guid: 0e289557a9c74834a89df1a1554aaec1, type: 3}
-      propertyPath: dropBlockFromThisYPos
-      value: 14
-      objectReference: {fileID: 0}
     - target: {fileID: 5201068655095162077, guid: 0e289557a9c74834a89df1a1554aaec1, type: 3}
       propertyPath: m_RootOrder
       value: 4

@@ -7,9 +7,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5248389854298790448, guid: 4220aa831c2f03d4ca63bcc064129ee5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078350914508754769, guid: 4220aa831c2f03d4ca63bcc064129ee5, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078350914508754769, guid: 4220aa831c2f03d4ca63bcc064129ee5, type: 3}
+      propertyPath: m_UseFullKinematicContacts
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3078350914508754770, guid: 4220aa831c2f03d4ca63bcc064129ee5, type: 3}
       propertyPath: m_Name
-      value: T_L_3Hit
+      value: T_L_3Hit Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3078350914508754771, guid: 4220aa831c2f03d4ca63bcc064129ee5, type: 3}
       propertyPath: m_RootOrder

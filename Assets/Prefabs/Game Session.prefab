@@ -454,8 +454,8 @@ MonoBehaviour:
   levelText: {fileID: 4711691338574622231}
   autoPlayEnabled: 1
   currentScore: 0
-  ballsCollected: 3
-  reserveBalls: 3
+  ballsCollected: 1
+  reserveBalls: 2
   levelName: 
   ballsLoadedIntoScene: 0
   ballsAtPlay: 1

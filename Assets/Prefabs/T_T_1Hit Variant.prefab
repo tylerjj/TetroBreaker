@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5596792439904564199, guid: 71ac227a092df3040a1122d1839a9363, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -195930716187446702, guid: 71ac227a092df3040a1122d1839a9363, type: 3}
       propertyPath: m_ColliderPaths.Array.data[1].m_Collider
       value: 
@@ -97,7 +101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4392122589906568200, guid: 71ac227a092df3040a1122d1839a9363, type: 3}
       propertyPath: m_Name
-      value: T_T_1Hit
+      value: T_T_1Hit Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4392122589906568201, guid: 71ac227a092df3040a1122d1839a9363, type: 3}
       propertyPath: m_RootOrder
@@ -141,6 +145,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4392122589906568201, guid: 71ac227a092df3040a1122d1839a9363, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392122589906568203, guid: 71ac227a092df3040a1122d1839a9363, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392122589906568203, guid: 71ac227a092df3040a1122d1839a9363, type: 3}
+      propertyPath: m_UseFullKinematicContacts
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -24,7 +24,13 @@ public class MovementManager : MonoBehaviour
 
     [SerializeField] public bool rotateZMoveXRandomAction = false;
     [SerializeField] public float randomActionInterval = 8f;
-    
+
+    Rigidbody2D myRigidbody2D;
+
+    private void Start()
+    {
+        myRigidbody2D = GetComponent<Rigidbody2D>();
+    }
 
     private void OnEnable()
     {
@@ -45,9 +51,7 @@ public class MovementManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
-
     private void StartMyMovements()
     {
         StartCoroutine(DelayedMoveOnYAxis(moveDirectionY, distanceToMoveY, moveIntervalY));
@@ -73,9 +77,27 @@ public class MovementManager : MonoBehaviour
     }
     private void MoveOnYAxis(int moveDirection, float distanceToMove)
     {
+        /*
         Vector3 myPosition = transform.position;
         myPosition.y += moveDirection * distanceToMove;
         transform.position = myPosition;
+        */
+        if (moveDirection != 0)
+        {
+            Vector2 myPosition = transform.position;
+            myPosition.y += moveDirection * distanceToMove;
+            myRigidbody2D.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+            myRigidbody2D.MovePosition(myPosition);
+            StartCoroutine(FreezePosition());
+        }
+
+    }
+
+    IEnumerator FreezePosition()
+    {
+        yield return new WaitForFixedUpdate();
+        yield return new WaitForFixedUpdate();
+        myRigidbody2D.constraints = RigidbodyConstraints2D.FreezeAll;
     }
     IEnumerator DelayedMoveOnXAxis(int moveDirection, float distanceToMove, float moveInterval)
     {
