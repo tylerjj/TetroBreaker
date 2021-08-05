@@ -152,7 +152,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 103185000}
-  m_RootOrder: 0
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2146266
 SpriteRenderer:
@@ -234,7 +234,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 103185000}
-  m_RootOrder: 1
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &26234583
 SpriteRenderer:
@@ -456,7 +456,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69001749}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.5, y: 9.309999, z: 1}
+  m_LocalPosition: {x: 7.5, y: 9.309999, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 103185000}
@@ -602,15 +602,15 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2146265}
-  - {fileID: 26234582}
-  - {fileID: 423231921}
   - {fileID: 892902646}
   - {fileID: 1140323972}
+  - {fileID: 423231921}
   - {fileID: 1942894564}
   - {fileID: 1543211819}
   - {fileID: 1119265318}
   - {fileID: 1789160024}
+  - {fileID: 2146265}
+  - {fileID: 26234582}
   - {fileID: 1380320678}
   - {fileID: 69001750}
   - {fileID: 988213736}
@@ -1863,15 +1863,15 @@ PrefabInstance:
     - target: {fileID: 4503551946861492375, guid: 7d199ecd94cc5a44ea539e4a783454ea, type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_Collider
       value: 
-      objectReference: {fileID: 1922540132}
+      objectReference: {fileID: 0}
     - target: {fileID: 4503551946861492375, guid: 7d199ecd94cc5a44ea539e4a783454ea, type: 3}
       propertyPath: m_ColliderPaths.Array.data[2].m_Collider
       value: 
-      objectReference: {fileID: 1152949231}
+      objectReference: {fileID: 0}
     - target: {fileID: 4503551946861492375, guid: 7d199ecd94cc5a44ea539e4a783454ea, type: 3}
       propertyPath: m_ColliderPaths.Array.data[3].m_Collider
       value: 
-      objectReference: {fileID: 1728551825}
+      objectReference: {fileID: 0}
     - target: {fileID: 4503551946861492375, guid: 7d199ecd94cc5a44ea539e4a783454ea, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[0].x
       value: 0.49994132
@@ -2270,7 +2270,7 @@ Transform:
   m_LocalScale: {x: 0.39942437, y: 0.3678, z: 1}
   m_Children: []
   m_Father: {fileID: 103185000}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &892902647
 SpriteRenderer:
@@ -2869,7 +2869,7 @@ Transform:
   m_LocalScale: {x: 0.5266768, y: 1.5747, z: 1}
   m_Children: []
   m_Father: {fileID: 103185000}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1119265319
 SpriteRenderer:
@@ -2951,7 +2951,7 @@ Transform:
   m_LocalScale: {x: 0.723259, y: 0.20545262, z: 1}
   m_Children: []
   m_Father: {fileID: 103185000}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1140323973
 SpriteRenderer:
@@ -3086,11 +3086,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1152949231 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 1782367845517532633, guid: 7d199ecd94cc5a44ea539e4a783454ea, type: 3}
-  m_PrefabInstance: {fileID: 827086254}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1178593614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3758,7 +3753,7 @@ Transform:
   m_LocalScale: {x: 1.0101204, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 103185000}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1543211820
 SpriteRenderer:
@@ -3873,11 +3868,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1724012501332240988, guid: 1aef9817169c0b9489252a7ca9cfd8d7, type: 3}
   m_PrefabInstance: {fileID: 1565294668}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &1728551825 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 1782367846581296141, guid: 7d199ecd94cc5a44ea539e4a783454ea, type: 3}
-  m_PrefabInstance: {fileID: 827086254}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1739895402
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3965,11 +3955,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1789160023}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.8556, y: 2.19054, z: 2}
+  m_LocalPosition: {x: 9.8556, y: 2.19054, z: 2.5}
   m_LocalScale: {x: 1.0101204, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 103185000}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1789160025
 SpriteRenderer:
@@ -4036,7 +4026,7 @@ PrefabInstance:
     - target: {fileID: -6379997104704628647, guid: fb8f6973a442919438fb06cbd046ec04, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 42eca95eca33c464b93c6797d20a673c, type: 3}
+      objectReference: {fileID: 8300000, guid: 466f7ce0edba30549bebcb8e96e931dd, type: 3}
     - target: {fileID: 3456221403029523365, guid: fb8f6973a442919438fb06cbd046ec04, type: 3}
       propertyPath: m_Name
       value: Game Camera
@@ -4567,11 +4557,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9947274346862021, guid: 66729cbae28f45240ac843295422e8f1, type: 3}
   m_PrefabInstance: {fileID: 1914598181}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &1922540132 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 1782367845504149588, guid: 7d199ecd94cc5a44ea539e4a783454ea, type: 3}
-  m_PrefabInstance: {fileID: 827086254}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1933765492
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4659,11 +4644,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1942894563}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.970737, y: 4.3911552, z: 2}
+  m_LocalPosition: {x: 8.970737, y: 4.3911552, z: 3}
   m_LocalScale: {x: 1.103558, y: 2.0536, z: 1}
   m_Children: []
   m_Father: {fileID: 103185000}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1942894565
 SpriteRenderer:

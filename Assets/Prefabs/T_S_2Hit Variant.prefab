@@ -11,6 +11,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5531940083229014474, guid: 1780173cfe75d4a439bd6599b8ad54c7, type: 3}
+      propertyPath: m_ColliderPaths.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5531940083229014474, guid: 1780173cfe75d4a439bd6599b8ad54c7, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1280250191047878064, guid: 1780173cfe75d4a439bd6599b8ad54c7, type: 3}
       propertyPath: m_Name
       value: T_S_2Hit Variant
@@ -99,5 +107,10 @@ PrefabInstance:
       propertyPath: hitSprites.Array.data[2]
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8594783044857539642, guid: 1780173cfe75d4a439bd6599b8ad54c7, type: 3}
+    - {fileID: 8594783043810520558, guid: 1780173cfe75d4a439bd6599b8ad54c7, type: 3}
+    - {fileID: 8594783043952655652, guid: 1780173cfe75d4a439bd6599b8ad54c7, type: 3}
+    - {fileID: 8594783043789297763, guid: 1780173cfe75d4a439bd6599b8ad54c7, type: 3}
+    - {fileID: -5531940083229014474, guid: 1780173cfe75d4a439bd6599b8ad54c7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1780173cfe75d4a439bd6599b8ad54c7, type: 3}

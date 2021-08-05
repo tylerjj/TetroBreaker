@@ -152,7 +152,7 @@ Transform:
   m_Children:
   - {fileID: 1033856029}
   m_Father: {fileID: 1033498638}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &115197796
 PrefabInstance:
@@ -675,11 +675,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 259974719}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.4707375, y: 4.3911552, z: 2}
+  m_LocalPosition: {x: 4.4707375, y: 4.3911552, z: 3}
   m_LocalScale: {x: 0.8964, y: 2.0536, z: 1}
   m_Children: []
   m_Father: {fileID: 1033498638}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &259974721
 SpriteRenderer:
@@ -1210,7 +1210,7 @@ Transform:
   m_LocalScale: {x: 0.723259, y: 0.20545262, z: 1}
   m_Children: []
   m_Father: {fileID: 1033498638}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &745943647
 SpriteRenderer:
@@ -1436,13 +1436,13 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1466579345}
-  - {fileID: 1542144732}
   - {fileID: 259974720}
+  - {fileID: 2082496989}
   - {fileID: 1360179570}
   - {fileID: 1590854162}
+  - {fileID: 1542144732}
   - {fileID: 745943646}
   - {fileID: 49305466}
-  - {fileID: 2082496989}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1819,7 +1819,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1360179569}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.21999979, y: 8.77, z: 2}
+  m_LocalPosition: {x: -0.21999979, y: 8.77, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1033498638}
@@ -1987,7 +1987,7 @@ Transform:
   m_LocalScale: {x: 0.39942437, y: 0.3678, z: 1}
   m_Children: []
   m_Father: {fileID: 1033498638}
-  m_RootOrder: 1
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1542144733
 SpriteRenderer:
@@ -2136,7 +2136,7 @@ PrefabInstance:
     - target: {fileID: -6379997104704628647, guid: fb8f6973a442919438fb06cbd046ec04, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 42eca95eca33c464b93c6797d20a673c, type: 3}
+      objectReference: {fileID: 8300000, guid: 267a0562368421345b5308f4c853e2ab, type: 3}
     - target: {fileID: 3456221403029523365, guid: fb8f6973a442919438fb06cbd046ec04, type: 3}
       propertyPath: m_Name
       value: Game Camera
@@ -2647,7 +2647,7 @@ Transform:
   m_LocalScale: {x: 1.0101204, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1033498638}
-  m_RootOrder: 7
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2082496990
 SpriteRenderer:

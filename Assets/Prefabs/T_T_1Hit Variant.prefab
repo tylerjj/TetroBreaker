@@ -12,13 +12,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -195930716187446702, guid: 71ac227a092df3040a1122d1839a9363, type: 3}
+      propertyPath: m_ColliderPaths.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -195930716187446702, guid: 71ac227a092df3040a1122d1839a9363, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -195930716187446702, guid: 71ac227a092df3040a1122d1839a9363, type: 3}
       propertyPath: m_ColliderPaths.Array.data[1].m_Collider
       value: 
-      objectReference: {fileID: 7358857911614699205}
+      objectReference: {fileID: 0}
     - target: {fileID: -195930716187446702, guid: 71ac227a092df3040a1122d1839a9363, type: 3}
       propertyPath: m_ColliderPaths.Array.data[2].m_Collider
       value: 
-      objectReference: {fileID: 7358857911271204367}
+      objectReference: {fileID: 0}
     - target: {fileID: -195930716187446702, guid: 71ac227a092df3040a1122d1839a9363, type: 3}
       propertyPath: m_ColliderPaths.Array.data[1].m_ColliderPaths.Array.data[0].Array.data[0].Y
       value: -5000000
@@ -155,15 +163,10 @@ PrefabInstance:
       propertyPath: m_UseFullKinematicContacts
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6517101572971416962, guid: 71ac227a092df3040a1122d1839a9363, type: 3}
+    - {fileID: 6517101571924364374, guid: 71ac227a092df3040a1122d1839a9363, type: 3}
+    - {fileID: 6517101571527433372, guid: 71ac227a092df3040a1122d1839a9363, type: 3}
+    - {fileID: 6517101571909482971, guid: 71ac227a092df3040a1122d1839a9363, type: 3}
+    - {fileID: -195930716187446702, guid: 71ac227a092df3040a1122d1839a9363, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 71ac227a092df3040a1122d1839a9363, type: 3}
---- !u!61 &7358857911614699205 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 6517101571527433372, guid: 71ac227a092df3040a1122d1839a9363, type: 3}
-  m_PrefabInstance: {fileID: 4354575195950131801}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &7358857911271204367 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 6517101571924364374, guid: 71ac227a092df3040a1122d1839a9363, type: 3}
-  m_PrefabInstance: {fileID: 4354575195950131801}
-  m_PrefabAsset: {fileID: 0}

@@ -326,7 +326,7 @@ Transform:
   m_LocalScale: {x: 0.723259, y: 0.20545262, z: 1}
   m_Children: []
   m_Father: {fileID: 373854579}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &37136543
 SpriteRenderer:
@@ -1360,6 +1360,7 @@ Transform:
   m_Children:
   - {fileID: 77174385}
   - {fileID: 450026300}
+  - {fileID: 627500399}
   - {fileID: 831466716}
   - {fileID: 1035656664}
   - {fileID: 37136542}
@@ -1367,7 +1368,6 @@ Transform:
   - {fileID: 972431349}
   - {fileID: 646524828}
   - {fileID: 1526273664}
-  - {fileID: 627500399}
   m_Father: {fileID: 3629205}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1788,7 +1788,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 373854579}
-  m_RootOrder: 9
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &627500400
 SpriteRenderer:
@@ -1870,7 +1870,7 @@ Transform:
   m_LocalScale: {x: 0.5266768, y: 1.5747, z: 1}
   m_Children: []
   m_Father: {fileID: 373854579}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &646524829
 SpriteRenderer:
@@ -2153,7 +2153,7 @@ Transform:
   m_LocalScale: {x: 1.0101204, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 373854579}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &831466717
 SpriteRenderer:
@@ -2394,11 +2394,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972431348}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.8556004, y: 2.19054, z: 2}
+  m_LocalPosition: {x: 5.8556004, y: 2.19054, z: 3}
   m_LocalScale: {x: 1.0101204, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 373854579}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &972431350
 SpriteRenderer:
@@ -2562,7 +2562,7 @@ Transform:
   m_LocalScale: {x: 0.39942437, y: 0.3678, z: 1}
   m_Children: []
   m_Father: {fileID: 373854579}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1035656665
 SpriteRenderer:
@@ -3271,7 +3271,7 @@ Transform:
   m_LocalScale: {x: 1.103558, y: 2.0536, z: 1}
   m_Children: []
   m_Father: {fileID: 373854579}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1438020922
 SpriteRenderer:
@@ -3741,7 +3741,7 @@ Transform:
   m_LocalScale: {x: 1.0101204, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 373854579}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1526273665
 SpriteRenderer:
@@ -4326,7 +4326,7 @@ PrefabInstance:
     - target: {fileID: -6379997104704628647, guid: fb8f6973a442919438fb06cbd046ec04, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 42eca95eca33c464b93c6797d20a673c, type: 3}
+      objectReference: {fileID: 8300000, guid: 42a6e4e230cce4646953a0dd33a9d75a, type: 3}
     - target: {fileID: 3456221403029523365, guid: fb8f6973a442919438fb06cbd046ec04, type: 3}
       propertyPath: m_Name
       value: Game Camera
