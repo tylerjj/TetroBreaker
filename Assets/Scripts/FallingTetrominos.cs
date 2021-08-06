@@ -114,7 +114,7 @@ public class FallingTetrominos : MonoBehaviour
 
     private MovementManager SetShapeTransform(MovementManager shape, float x, float y, float rot)
     {
-        shape.transform.position = new Vector2(x, y);
+        shape.transform.position = new Vector2(transform.position.x+x, transform.position.y+y);
         shape.transform.Rotate(0f, 0f, rot);
         return shape;
     }
