@@ -1,14 +1,19 @@
 # TetroBreaker
 
 Game Description:
+  My take on Gamedev.TV's Block Breaker game prototype.
   Control paddle with mouse. Left click to launch ball from paddle. 
   Destroy all the breakable objects in the scene in order to move to the next level. 
 
-Playable Demo:
+
+TetroBreaker Playable Demo:
 https://sharemygame.com/@Tyler_Johnston/tetro-breaker
 
-AutoPlay Demo:
+TetroBreaker AutoPlay Demo:
 https://www.youtube.com/watch?v=yVNDW59J7mE
+
+BlockBreaker Demo (an example of Gamedev.TV Version):
+https://www.youtube.com/watch?v=duJqqQl-IRs
 
 Known Bugs: 
   Ball Loops at edge of screen,
