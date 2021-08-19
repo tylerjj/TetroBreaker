@@ -12,7 +12,7 @@ https://sharemygame.com/@Tyler_Johnston/tetro-breaker
 TetroBreaker AutoPlay Demo:
 https://www.youtube.com/watch?v=yVNDW59J7mE
 
-BlockBreaker Demo (an example of Gamedev.TV Version):
+GameDev.tv BlockBreaker Demo:
 https://www.youtube.com/watch?v=duJqqQl-IRs
 
 Known Bugs: 
